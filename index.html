@@ -6,12 +6,15 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link href="https://unpkg.com/lucide@latest/dist/umd/lucide.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/lucide-static@0.289.0/font/css/lucide.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <style>
     body {
       margin: 0;
       font-family: 'Century Gothic', sans-serif;
       background: linear-gradient(to bottom, #eaf3ff 0%, #f5f9ff 100%);
       color: #333;
+      scroll-behavior: smooth;
     }
     #particles-js {
       position: fixed;
@@ -157,6 +160,52 @@
       color: #1f4fff;
       font-weight: bold;
     }
+    .artigos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .artigo {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .artigo:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    .artigo h4 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: #1a1a1a;
+    }
+    .contato {
+      background: #ffffff88;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+    .contato input,
+    .contato textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .contato button {
+      padding: 10px 20px;
+      background: #1f4fff;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .contato button:hover {
+      background: #0033cc;
+    }
   </style>
 </head>
 <body>
@@ -176,7 +225,90 @@
       <a href="#contato"><i class="lucide lucide-mail"></i>Contato</a>
     </div>
   </header>
-  <!-- Resto do conteúdo continua igual -->
-  <!-- ... -->
+
+  <section id="produtos">
+    <h2>Produtos em Destaque</h2>
+    <div class="barra-pesquisa">
+      <input type="text" id="pesquisa" placeholder="Buscar por nome...">
+    </div>
+    <div class="filtros">
+      <button onclick="filtrarProdutos('todos')">Todos</button>
+      <button onclick="filtrarProdutos('camisas')">Camisas</button>
+      <button onclick="filtrarProdutos('calçados')">Calçados</button>
+      <button onclick="filtrarProdutos('acessorios')">Acessórios</button>
+    </div>
+    <div class="produtos-grid" id="lista-produtos">
+      <div class="produto" data-categoria="camisas">
+        <img src="https://m.media-amazon.com/images/I/61UNb3Rp4nL._AC_UX679_.jpg" alt="Camisa Slim Fit Masculina">
+        <h3>Camisa Slim Fit</h3>
+        <a href="#">Ver Produto</a>
+      </div>
+      <div class="produto" data-categoria="calçados">
+        <img src="https://m.media-amazon.com/images/I/61P5Ynvk0rL._AC_UY500_.jpg" alt="Tênis Casual">
+        <h3>Tênis Casual</h3>
+        <a href="#">Ver Produto</a>
+      </div>
+      <div class="produto" data-categoria="acessorios">
+        <img src="https://m.media-amazon.com/images/I/61pZAh8RfdL._AC_UL640_QL65_.jpg" alt="Relógio Estiloso">
+        <h3>Relógio Estiloso</h3>
+        <a href="#">Ver Produto</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="artigos">
+    <h2>Artigos Recentes</h2>
+    <div class="artigos-grid">
+      <div class="artigo" data-aos="fade-up">
+        <h4>Como Montar um Guarda-Roupa Versátil</h4>
+        <p>Dicas práticas para escolher peças-chave e economizar.</p>
+      </div>
+      <div class="artigo" data-aos="fade-up" data-aos-delay="100">
+        <h4>As Tendências de 2025</h4>
+        <p>O que esperar da moda masculina no futuro próximo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <h2>Fale Conosco</h2>
+    <div class="contato">
+      <input type="text" placeholder="Seu nome">
+      <input type="email" placeholder="Seu e-mail">
+      <textarea rows="4" placeholder="Escreva sua mensagem..."></textarea>
+      <button onclick="alert('Mensagem enviada!')">Enviar</button>
+    </div>
+  </section>
+
+  <script>
+    AOS.init();
+
+    particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.json');
+
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('active');
+      const audio = new Audio('https://cdn.pixabay.com/download/audio/2023/03/06/audio_93cf0bb87a.mp3');
+      audio.volume = 0.1;
+      audio.play();
+    }
+
+    document.getElementById('pesquisa').addEventListener('input', function () {
+      const termo = this.value.toLowerCase();
+      document.querySelectorAll('.produto').forEach(el => {
+        const nome = el.querySelector('h3').textContent.toLowerCase();
+        el.style.display = nome.includes(termo) ? '' : 'none';
+      });
+    });
+
+    function filtrarProdutos(categoria) {
+      document.querySelectorAll('.produto').forEach(el => {
+        if (categoria === 'todos' || el.dataset.categoria === categoria) {
+          el.style.display = '';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
