@@ -2,94 +2,79 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Moda Masculina</title>
   <link rel="stylesheet" href="style.css" />
-  
-  <!-- fullPage.js -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
-
-  <!-- tsParticles -->
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 </head>
 <body>
-  <!-- Div para partículas -->
-  <div id="tsparticles"></div>
+  <header>
+    <div class="logo">Moda Masculina</div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="menu" class="hidden">
+      <a href="#produtos">Produtos</a>
+      <a href="#artigos">Artigos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
 
-  <!-- Container para scroll seções -->
-  <div id="fullpage">
-    <header>
-      <div class="site-title">Moda Masculina</div>
-      <div class="hamburger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <h1>Moda Masculina</h1>
+      <p>Estilo, elegância e atitude para o homem moderno.</p>
+    </div>
+  </section>
+
+  <section class="section" id="produtos">
+    <h2>Produtos em Destaque</h2>
+    <div class="produtos-grid">
+      <div class="produto">
+        <img src="https://via.placeholder.com/200x200?text=Camisa+Slim" alt="Camisa Slim"/>
+        <h3>Camisa Slim</h3>
+        <p>Estilo urbano com conforto.</p>
+        <a href="#" class="btn">Ver na Amazon</a>
       </div>
-      <nav id="menu" class="hidden">
-        <a href="#produtos">Produtos</a>
-        <a href="#artigos">Artigos</a>
-        <a href="#contato">Fale Conosco</a>
-      </nav>
-    </header>
-
-    <!-- Seção Produtos -->
-    <section id="produtos" class="section">
-      <h2>Produtos em Destaque</h2>
-      <input type="text" placeholder="Pesquisar produto..." class="search-box" />
-      <div class="produtos-grid">
-        <div class="produto">
-          <img src="https://via.placeholder.com/200x200?text=Relógio+Moderno" alt="Relógio Moderno" />
-          <h3>Relógio Moderno</h3>
-          <p>Design elegante para seu dia a dia.</p>
-          <a href="#" class="btn">Ver na Amazon</a>
-        </div>
-        <div class="produto">
-          <img src="https://via.placeholder.com/200x200?text=Camisa+Slim" alt="Camisa Slim" />
-          <h3>Camisa Slim</h3>
-          <p>Estilo urbano com conforto.</p>
-          <a href="#" class="btn">Ver na Amazon</a>
-        </div>
-        <div class="produto">
-          <img src="https://via.placeholder.com/200x200?text=Tenis+Casual" alt="Tênis Casual" />
-          <h3>Tênis Casual</h3>
-          <p>Versátil e moderno para qualquer ocasião.</p>
-          <a href="#" class="btn">Ver na Amazon</a>
-        </div>
+      <div class="produto">
+        <img src="https://via.placeholder.com/200x200?text=Relógio+Clássico" alt="Relógio Clássico"/>
+        <h3>Relógio Clássico</h3>
+        <p>Elegância que impressiona.</p>
+        <a href="#" class="btn">Ver na Amazon</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Seção Artigos -->
-    <section id="artigos" class="section">
-      <h2>Artigos Recentes</h2>
-      <div class="artigos-grid">
-        <div>
-          <h3>Como se vestir bem gastando pouco</h3>
-          <p>Dicas práticas para montar looks estilosos sem estourar o orçamento.</p>
-        </div>
-        <div>
-          <h3>Top 5 peças essenciais no guarda-roupa masculino</h3>
-          <p>Itens-chave que combinam com qualquer ocasião.</p>
-        </div>
-        <div>
-          <h3>A importância dos acessórios na moda masculina</h3>
-          <p>Relógios, pulseiras e outros detalhes que fazem a diferença.</p>
-        </div>
-      </div>
-    </section>
+  <section class="section" id="artigos">
+    <h2>Artigos Recentes</h2>
+    <div class="artigos-grid">
+      <article>
+        <h3>Como se vestir bem gastando pouco</h3>
+        <p>Dicas práticas para montar looks estilosos sem gastar muito.</p>
+      </article>
+      <article>
+        <h3>Peças essenciais no guarda-roupa masculino</h3>
+        <p>Itens-chave para todos os estilos.</p>
+      </article>
+    </div>
+  </section>
 
-    <!-- Seção Contato -->
-    <section id="contato" class="section">
-      <h2>Fale Conosco</h2>
-      <form action="https://formspree.io/f/SEU_ID" method="POST">
-        <input type="text" name="nome" placeholder="Seu nome" required />
-        <input type="email" name="email" placeholder="Seu e-mail" required />
-        <textarea name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-    </section>
-  </div>
+  <section class="section" id="contato">
+    <h2>Fale Conosco</h2>
+    <form>
+      <input type="text" placeholder="Seu nome" required />
+      <input type="email" placeholder="Seu e-mail" required />
+      <textarea rows="5" placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
 
-  <script src="script.js"></script>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('hidden');
+    }
+  </script>
 </body>
 </html>
