@@ -3,7 +3,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #dbeafe, #bfdbfe);
   color: #111;
-  overflow: hidden;
+  overflow: auto; /* Corrigido para permitir scroll */
 }
 
 header {
@@ -32,7 +32,7 @@ header {
   cursor: pointer;
   gap: 5px;
   position: absolute;
-  right: 60px; /* ajustado para não colar na borda */
+  right: 40px; /* Ajustado mais à esquerda como solicitado */
   top: 18px;
 }
 
@@ -66,7 +66,10 @@ nav a {
 .section {
   text-align: center;
   padding: 100px 20px;
-  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .produtos-grid {
