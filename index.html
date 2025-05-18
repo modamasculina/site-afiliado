@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Moda Masculina</title>
-  <link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap" rel="stylesheet">
+
+  <!-- Fontes estilosas -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -13,7 +16,7 @@
 
     body {
       font-family: 'Oswald', sans-serif;
-      background-color: #f9f9f9;
+      background: linear-gradient(to right, #f9f9f9, #eeeeee);
       color: #333;
     }
 
@@ -23,17 +26,15 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      padding: 1.2rem 2.5rem;
+      margin: 1rem;
+      border-radius: 12px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
     .logo {
-      font-family: 'Anton', sans-serif;
+      font-family: 'Permanent Marker', cursive;
       font-size: 3.2rem;
-      text-transform: uppercase;
       background: linear-gradient(90deg, #00ffae, #0075ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -55,6 +56,27 @@
 
     nav a:hover {
       color: #00ffae;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background-color: #fff;
+      margin: 1rem;
+      border-radius: 12px;
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #111;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #555;
     }
 
     section {
@@ -127,17 +149,22 @@
     </nav>
   </header>
 
+  <section class="hero">
+    <h1>Estilo que Inspira</h1>
+    <p>Explore o melhor da moda masculina urbana e moderna</p>
+  </section>
+
   <section id="produtos">
     <h2>Produtos</h2>
     <div class="produtos-grid">
       <div class="produto">
         <img src="https://via.placeholder.com/250x250?text=Camisa" alt="Camisa Masculina">
-        <h3>Camisa Slim Fit</h3>
+        <h3>Camisa Oversized Street</h3>
         <a href="#">Ver Produto</a>
       </div>
       <div class="produto">
         <img src="https://via.placeholder.com/250x250?text=Tenis" alt="Tênis Masculino">
-        <h3>Tênis Casual</h3>
+        <h3>Tênis Casual Urbano</h3>
         <a href="#">Ver Produto</a>
       </div>
       <div class="produto">
