@@ -31,6 +31,9 @@ header {
   flex-direction: column;
   cursor: pointer;
   gap: 5px;
+  position: absolute;
+  right: 60px; /* ajustado para não colar na borda */
+  top: 18px;
 }
 
 .hamburger span {
@@ -63,6 +66,7 @@ nav a {
 .section {
   text-align: center;
   padding: 100px 20px;
+  height: 100vh;
 }
 
 .produtos-grid {
@@ -142,4 +146,3 @@ form button {
 .fp-slidesNav ul li a span {
   background: #111 !important;
 }
-
