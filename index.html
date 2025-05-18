@@ -1,231 +1,163 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Moda Masculina - Seu Estilo</title>
+  <meta charset="UTF-8">
+  <title>Moda Masculina</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
   <style>
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
-      margin: 0; padding: 0;
     }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fafafa;
+      font-family: 'Oswald', sans-serif;
+      background-color: #f9f9f9;
       color: #333;
-      line-height: 1.6;
     }
+
     header {
-      background: #222;
-      color: white;
-      padding: 1em 2em;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 10;
+      background-color: #111;
+      color: #fff;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    header .logo {
-      font-size: 1.5em;
-      font-weight: bold;
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
       letter-spacing: 2px;
-      cursor: default;
     }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
     nav a {
-      color: white;
-      margin-left: 1.5em;
+      color: #fff;
       text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
+      font-size: 1rem;
+      transition: color 0.3s;
     }
+
     nav a:hover {
-      color: #00aaff;
+      color: #00ffae;
     }
-    main {
-      margin-top: 80px;
-      padding: 1em 2em 3em;
-    }
-    .banner {
-      position: relative;
-      height: 300px;
-      background: url('https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
-      border-radius: 10px;
-      margin-bottom: 2em;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-    .banner-text {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      color: white;
-      background: rgba(0,0,0,0.5);
-      padding: 1em 1.5em;
-      border-radius: 8px;
-      font-size: 1.5em;
-      font-weight: bold;
-      max-width: 70%;
-    }
+
     section {
-      margin-bottom: 3em;
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
     }
+
     section h2 {
-      margin-bottom: 1em;
-      font-size: 2em;
-      color: #222;
-      border-bottom: 3px solid #00aaff;
-      display: inline-block;
-      padding-bottom: 0.2em;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-left: 5px solid #00ffae;
+      padding-left: 0.5rem;
     }
-    .produtos, .artigos {
+
+    .produtos-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5em;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
     }
-    .card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .card-content {
-      padding: 1em;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .card-content h3 {
-      margin-bottom: 0.5em;
-      color: #00aaff;
-    }
-    .card-content p {
-      flex-grow: 1;
-      margin-bottom: 1em;
-      color: #555;
-    }
-    .card-content a {
-      align-self: flex-start;
-      background: #00aaff;
-      color: white;
-      padding: 0.5em 1em;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
-    }
-    .card-content a:hover {
-      background: #0088cc;
-    }
-    footer {
-      background: #222;
-      color: white;
+
+    .produto {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
       text-align: center;
-      padding: 1em 2em;
-      font-size: 0.9em;
-      margin-top: 3em;
-      border-top: 4px solid #00aaff;
     }
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav {
-        margin-top: 0.5em;
-      }
+
+    .produto img {
+      max-width: 100%;
+      border-radius: 6px;
+    }
+
+    .produto h3 {
+      margin: 0.5rem 0;
+    }
+
+    .produto a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #00ffae;
+      color: #000;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #111;
+      color: #aaa;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="logo">Seu Estilo</div>
+    <div class="logo">Moda Masculina</div>
     <nav>
-      <a href="#produtos">Produtos</a>
-      <a href="#artigos">Artigos</a>
-      <a href="#contato">Contato</a>
+      <ul>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#artigos">Artigos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
     </nav>
   </header>
 
-  <main>
-    <div class="banner">
-      <div class="banner-text">Moda Masculina com Estilo e Elegância</div>
+  <section id="produtos">
+    <h2>Produtos</h2>
+    <div class="produtos-grid">
+      <div class="produto">
+        <img src="https://via.placeholder.com/250x250?text=Camisa" alt="Camisa Masculina">
+        <h3>Camisa Slim Fit</h3>
+        <a href="#">Ver Produto</a>
+      </div>
+      <div class="produto">
+        <img src="https://via.placeholder.com/250x250?text=Tenis" alt="Tênis Masculino">
+        <h3>Tênis Casual</h3>
+        <a href="#">Ver Produto</a>
+      </div>
+      <div class="produto">
+        <img src="https://via.placeholder.com/250x250?text=Relogio" alt="Relógio Masculino">
+        <h3>Relógio Estiloso</h3>
+        <a href="#">Ver Produto</a>
+      </div>
     </div>
+  </section>
 
-    <section id="produtos">
-      <h2>Produtos em Destaque</h2>
-      <div class="produtos">
-        <div class="card">
-          <img src="https://via.placeholder.com/400x300?text=Camisa+Social" alt="Camisa Social" />
-          <div class="card-content">
-            <h3>Camisa Social Slim Fit</h3>
-            <p>Conforto e elegância para o seu dia a dia. Corte moderno e tecido de qualidade.</p>
-            <a href="https://seulinkdeafiliado.com/camisa" target="_blank" rel="noopener noreferrer">Comprar</a>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/400x300?text=Rel%C3%B3gio+Elegante" alt="Relógio Elegante" />
-          <div class="card-content">
-            <h3>Relógio Clássico</h3>
-            <p>Design sofisticado que combina com qualquer ocasião.</p>
-            <a href="https://seulinkdeafiliado.com/relogio" target="_blank" rel="noopener noreferrer">Comprar</a>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/400x300?text=Perfume+Amadeirado" alt="Perfume Amadeirado" />
-          <div class="card-content">
-            <h3>Perfume Amadeirado</h3>
-            <p>Fragrância marcante para impressionar em todas as ocasiões.</p>
-            <a href="https://seulinkdeafiliado.com/perfume" target="_blank" rel="noopener noreferrer">Comprar</a>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section id="artigos">
+    <h2>Artigos</h2>
+    <p>Em breve artigos sobre estilo, grooming e tendências da moda masculina.</p>
+  </section>
 
-    <section id="artigos">
-      <h2>Artigos Recentes</h2>
-      <div class="artigos">
-        <div class="card">
-          <img src="https://via.placeholder.com/400x300?text=Dicas+de+Estilo" alt="Dicas de Estilo" />
-          <div class="card-content">
-            <h3>5 Dicas para Melhorar seu Estilo</h3>
-            <p>Descubra truques simples para valorizar sua aparência e se sentir mais confiante.</p>
-            <a href="#">Leia Mais</a>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/400x300?text=Cuidados+com+a+Barba" alt="Cuidados com a Barba" />
-          <div class="card-content">
-            <h3>Como Cuidar da Barba em Casa</h3>
-            <p>Aprenda a manter sua barba alinhada e saudável com passos fáceis.</p>
-            <a href="#">Leia Mais</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contato">
-      <h2>Contato</h2>
-      <p>Quer saber mais? Entre em contato pelo email: <a href="mailto:contato@seuestilo.com">contato@seuestilo.com</a></p>
-    </section>
-  </main>
+  <section id="contato">
+    <h2>Contato</h2>
+    <p>Fale conosco pelo e-mail: contato@modamasculina.com</p>
+  </section>
 
   <footer>
-    &copy; 2025 Seu Estilo. Todos os direitos reservados.
+    &copy; 2025 Moda Masculina. Todos os direitos reservados.
   </footer>
+
 </body>
 </html>
