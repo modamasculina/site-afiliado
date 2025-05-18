@@ -32,12 +32,12 @@ header {
   cursor: pointer;
   gap: 5px;
   position: absolute;
-  right: 100px;
+  right: 150px;
   top: 18px;
 }
 
 .hamburger span {
-  width: 25px;
+  width: 150px;
   height: 3px;
   background-color: #111;
 }
