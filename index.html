@@ -2,10 +2,10 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Moda Masculina</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullpage.js/dist/fullpage.min.css" />
 </head>
 <body>
   <header>
@@ -15,66 +15,66 @@
       <span></span>
       <span></span>
     </div>
-    <nav id="nav" class="hidden">
-      <a href="#produtos">Início</a>
+    <nav class="hidden" id="menu">
+      <a href="#produtos">Produtos</a>
       <a href="#artigos">Artigos</a>
-      <a href="#contato">Contato</a>
+      <a href="#contato">Fale Conosco</a>
     </nav>
   </header>
 
   <div id="fullpage">
-    <div class="section" id="produtos">
+    <section class="section" id="produtos" data-anchor="produtos">
       <h1>Produtos em Destaque</h1>
       <input type="text" class="search-box" placeholder="Pesquisar produtos..." />
       <div class="produtos-grid">
         <div class="produto">
-          <img src="https://m.media-amazon.com/images/I/61kH+9WaOQL._AC_SY606_.jpg" alt="Camisa Polo" />
-          <h3>Camisa Polo Clássica</h3>
-          <a href="#" class="btn">Ver Produto</a>
-        </div>
-        <div class="produto">
-          <img src="https://m.media-amazon.com/images/I/71CML0IwT0L._AC_SY606_.jpg" alt="Tênis Branco" />
-          <h3>Tênis Branco Casual</h3>
-          <a href="#" class="btn">Ver Produto</a>
-        </div>
-        <div class="produto">
-          <img src="https://m.media-amazon.com/images/I/71daGzRjSSL._AC_SY606_.jpg" alt="Relógio Moderno" />
+          <img src="https://via.placeholder.com/200x200?text=Relógio+Luxo" alt="Relógio de Luxo">
           <h3>Relógio Masculino</h3>
           <a href="#" class="btn">Ver Produto</a>
         </div>
+        <div class="produto">
+          <img src="https://via.placeholder.com/200x200?text=Camisa+Estilosa" alt="Camisa Estilosa">
+          <h3>Camisa Estilosa</h3>
+          <a href="#" class="btn">Ver Produto</a>
+        </div>
+        <div class="produto">
+          <img src="https://via.placeholder.com/200x200?text=Jaqueta+Futurista" alt="Jaqueta Futurista">
+          <h3>Jaqueta Futurista</h3>
+          <a href="#" class="btn">Ver Produto</a>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="section" id="artigos">
+    <section class="section" id="artigos" data-anchor="artigos">
       <h1>Artigos sobre Moda</h1>
       <div class="artigos-grid">
-        <div class="artigo">
-          <h3>Como Combinar Roupas Masculinas</h3>
-          <p>Dicas simples para montar looks estilosos no dia a dia.</p>
+        <div>
+          <h3>Como se vestir bem com pouco dinheiro</h3>
+          <p>Dicas práticas para montar um guarda-roupa estiloso sem gastar muito.</p>
         </div>
-        <div class="artigo">
-          <h3>O Que Vestir em Ocasiões Formais</h3>
-          <p>Veja como acertar no visual para festas, casamentos e eventos importantes.</p>
+        <div>
+          <h3>Top 5 estilos urbanos para 2025</h3>
+          <p>Descubra as tendências mais quentes da moda masculina urbana.</p>
         </div>
-        <div class="artigo">
-          <h3>Tendências 2025</h3>
-          <p>Descubra as principais peças e cores da próxima estação.</p>
+        <div>
+          <h3>Roupas que valorizam o seu corpo</h3>
+          <p>Aprenda a escolher roupas que combinam com seu tipo físico.</p>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="section" id="contato">
+    <section class="section" id="contato" data-anchor="contato">
       <h1>Fale Conosco</h1>
-      <form action="https://formsubmit.co/brendhoqueiroga@gmail.com" method="POST">
-        <input type="text" name="name" placeholder="Seu nome" required />
-        <input type="email" name="email" placeholder="Seu email" required />
-        <textarea name="message" placeholder="Sua mensagem" rows="5" required></textarea>
+      <form>
+        <input type="text" placeholder="Seu nome" required />
+        <input type="email" placeholder="Seu e-mail" required />
+        <textarea rows="5" placeholder="Sua mensagem" required></textarea>
         <button type="submit">Enviar</button>
       </form>
-    </div>
+    </section>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullpage.js/dist/fullpage.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
