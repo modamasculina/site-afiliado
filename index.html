@@ -5,195 +5,142 @@
   <title>Moda Masculina</title>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    * {
+    body {
       margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      height: 100%;
       font-family: 'Century Gothic', sans-serif;
-      background: linear-gradient(to bottom, #e6f0ff, #f5faff);
-      color: #222;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
+      background: linear-gradient(to bottom, #eaf3ff 0%, #f5f9ff 100%);
+      color: #333;
     }
-
     #particles-js {
       position: fixed;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
       z-index: -1;
     }
-
     header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 1rem 2rem;
-      z-index: 100;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
       background: transparent;
     }
-
     .logo-text {
-      font-size: 1.5rem;
       font-weight: bold;
-      color: #1f4fff;
-      text-shadow: 0 0 10px rgba(31, 79, 255, 0.3);
+      font-size: 22px;
+      color: #1a1a1a;
     }
-
     .menu-toggle {
-      font-size: 1.5rem;
       cursor: pointer;
-      color: #1f4fff;
-      z-index: 101;
+      font-size: 26px;
+      color: #1a1a1a;
+      transition: transform 0.3s ease;
     }
-
+    .menu-toggle:hover {
+      transform: rotate(90deg);
+    }
     .menu {
-      position: fixed;
-      top: 4rem;
-      right: 2rem;
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 8px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
       display: none;
       flex-direction: column;
-      padding: 1rem;
-      gap: 1rem;
-      z-index: 100;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 10px;
     }
-
     .menu.active {
       display: flex;
-      animation: fadeIn 0.3s ease forwards;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     .menu a {
-      font-family: 'Arial', sans-serif;
       text-decoration: none;
-      color: #1f4fff;
-      font-weight: bold;
+      padding: 10px;
+      margin: 5px 0;
+      font-size: 16px;
       position: relative;
-      padding-left: 1rem;
+      transition: color 0.3s;
     }
-
-    .menu a::before {
-      content: '';
+    .menu a:hover {
+      color: #1f4fff;
+    }
+    .menu a::after {
+      content: "";
       position: absolute;
       left: 0;
-      top: 50%;
-      width: 6px;
-      height: 6px;
-      background: #1f4fff;
-      border-radius: 50%;
-      transform: translateY(-50%);
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: currentColor;
+      transition: width 0.3s;
     }
-
+    .menu a:hover::after {
+      width: 100%;
+    }
     section {
-      padding: 6rem 2rem 4rem;
+      padding: 100px 20px 60px;
       max-width: 1000px;
       margin: auto;
     }
-
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      border-left: 5px solid #1f4fff;
-      padding-left: 0.5rem;
-      font-weight: bold;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: titleReveal 1s forwards;
+    h2 {
+      font-family: 'Century Gothic', sans-serif;
+      font-size: 28px;
+      margin-bottom: 20px;
     }
-
-    @keyframes titleReveal {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .barra-pesquisa input {
+      padding: 10px;
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
     }
-
-    .filtros {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 2rem;
-      justify-content: center;
-    }
-
     .filtros button {
+      padding: 8px 12px;
+      margin: 5px;
+      border: none;
       background: #1f4fff;
       color: white;
-      border: none;
-      padding: 0.5rem 1rem;
       border-radius: 4px;
-      font-weight: bold;
       cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .filtros button:hover {
-      background: #163ccc;
-    }
-
-    .produtos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .produto {
-      background: #fff;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .produto:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-
-    .produto img {
-      max-width: 100%;
-      border-radius: 6px;
-    }
-
-    .produto h3 {
-      margin: 0.5rem 0;
-      font-weight: bold;
-    }
-
-    .produto a {
-      display: inline-block;
-      margin-top: 0.5rem;
-      padding: 0.5rem 1rem;
-      background: #1f4fff;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: bold;
       transition: background 0.3s, transform 0.2s;
     }
-
-    .produto a:hover {
-      background: #163ccc;
+    .filtros button:hover {
+      background: #395bff;
       transform: scale(1.05);
+    }
+    .produtos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .produto {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .produto:hover {
+      transform: translateY(-5px);
+    }
+    .produto img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+    .produto h3 {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+    .produto a {
+      text-decoration: none;
+      color: #1f4fff;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -211,6 +158,9 @@
 
   <section id="produtos" data-aos="fade-up">
     <h2>Produtos</h2>
+    <div class="barra-pesquisa">
+      <input type="text" id="pesquisa" placeholder="Buscar produtos..." oninput="pesquisarProdutos()">
+    </div>
     <div class="filtros">
       <button onclick="filtrarProdutos('todos')">Todos</button>
       <button onclick="filtrarProdutos('camisas')">Camisas</button>
@@ -219,19 +169,19 @@
     </div>
     <div class="produtos-grid">
       <div class="produto" data-categoria="camisas" data-aos="zoom-in">
-        <img src="https://via.placeholder.com/250x250?text=Camisa" alt="Camisa Masculina">
+        <img src="https://m.media-amazon.com/images/I/61UNb3Rp4nL._AC_UX679_.jpg" alt="Camisa Slim Fit Masculina">
         <h3>Camisa Slim Fit</h3>
-        <a href="#">Ver Produto</a>
+        <a href="https://www.amazon.com.br/dp/B0BXXDYZ88?tag=seulinkafiliado">Ver Produto</a>
       </div>
       <div class="produto" data-categoria="calçados" data-aos="zoom-in" data-aos-delay="100">
-        <img src="https://via.placeholder.com/250x250?text=Tenis" alt="Tênis Masculino">
+        <img src="https://m.media-amazon.com/images/I/61P5Ynvk0rL._AC_UY500_.jpg" alt="Tênis Masculino Casual">
         <h3>Tênis Casual</h3>
-        <a href="#">Ver Produto</a>
+        <a href="https://www.amazon.com.br/dp/B0BYJXD1ZC?tag=seulinkafiliado">Ver Produto</a>
       </div>
       <div class="produto" data-categoria="acessorios" data-aos="zoom-in" data-aos-delay="200">
-        <img src="https://via.placeholder.com/250x250?text=Relogio" alt="Relógio Masculino">
+        <img src="https://m.media-amazon.com/images/I/61pZAh8RfdL._AC_UL640_QL65_.jpg" alt="Relógio Masculino Estiloso">
         <h3>Relógio Estiloso</h3>
-        <a href="#">Ver Produto</a>
+        <a href="https://www.amazon.com.br/dp/B08N5LR3M3?tag=seulinkafiliado">Ver Produto</a>
       </div>
     </div>
   </section>
@@ -263,6 +213,15 @@
         } else {
           p.style.display = 'none';
         }
+      });
+    }
+
+    function pesquisarProdutos() {
+      const termo = document.getElementById('pesquisa').value.toLowerCase();
+      const produtos = document.querySelectorAll('.produto');
+      produtos.forEach(p => {
+        const nome = p.querySelector('h3').textContent.toLowerCase();
+        p.style.display = nome.includes(termo) ? 'block' : 'none';
       });
     }
 
