@@ -1,18 +1,70 @@
-function toggleMenu() {
-  const menu = document.getElementById("menu");
-  menu.classList.toggle("hidden");
-}
+// FULLPAGE INIT
+document.addEventListener('DOMContentLoaded', () => {
+  new fullpage('#fullpage', {
+    autoScrolling: true,
+    navigation: true,
+    anchors: ['inicio', 'produtos', 'artigos', 'contato'],
+    navigationTooltips: ['Início', 'Produtos', 'Artigos', 'Contato'],
+    showActiveTooltip: true,
+    scrollHorizontally: false
+  });
 
-// Filtro de busca para produtos
-document.addEventListener("DOMContentLoaded", function () {
-  const searchBox = document.querySelector(".search-box");
-  const produtos = document.querySelectorAll(".produto");
+  // MENU HAMBÚRGUER FUNCIONAL
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('menu');
 
-  searchBox.addEventListener("input", function () {
-    const query = searchBox.value.toLowerCase();
-    produtos.forEach((produto) => {
-      const title = produto.querySelector("h3").textContent.toLowerCase();
-      produto.style.display = title.includes(query) ? "block" : "none";
+  hamburger.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+
+  // FECHAR MENU AO CLICAR EM LINK
+  document.querySelectorAll('#menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.add('hidden');
     });
+  });
+
+  // PARTICULAS TSPARTICLES
+  tsParticles.load('tsparticles', {
+    fullScreen: { enable: false },
+    background: {
+      color: {
+        value: 'transparent'
+      }
+    },
+    particles: {
+      number: {
+        value: 80,
+        density: { enable: true, value_area: 800 }
+      },
+      color: { value: '#1f4fff' },
+      shape: { type: 'circle' },
+      opacity: {
+        value: 0.3,
+        random: true,
+        anim: { enable: false }
+      },
+      size: {
+        value: 3,
+        random: true
+      },
+      move: {
+        enable: true,
+        speed: 0.6,
+        direction: 'none',
+        out_mode: 'out'
+      }
+    },
+    interactivity: {
+      events: {
+        onhover: { enable: true, mode: 'repulse' },
+        onclick: { enable: true, mode: 'push' }
+      },
+      modes: {
+        repulse: { distance: 100, duration: 0.4 },
+        push: { quantity: 4 }
+      }
+    },
+    detectRetina: true
   });
 });
