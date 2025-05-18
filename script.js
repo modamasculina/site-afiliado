@@ -1,32 +1,23 @@
-// FullPage.js inicialização
+// Ativando o menu hamburguer
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  menu.classList.toggle("open");
+}
+
+// AOS animações
+AOS.init({
+  duration: 1000,
+  once: true,
+});
+
+// Partículas no fundo
+particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js@master/demo/particles.json');
+
+// FullPage scroll
 new fullpage('#fullpage', {
   autoScrolling: true,
   navigation: true,
-  navigationPosition: 'right',
-  anchors: ['home', 'produtos', 'artigos', 'contato'],
-  scrollHorizontally: true
-});
-
-// Partículas de fundo
-particlesJS("particles-js", {
-  particles: {
-    number: { value: 50 },
-    color: { value: "#ffffff" },
-    shape: { type: "circle" },
-    opacity: {
-      value: 0.25,
-      random: true
-    },
-    size: {
-      value: 4,
-      random: true
-    },
-    move: {
-      enable: true,
-      speed: 1,
-      direction: "none",
-      random: true,
-      out_mode: "out"
-    }
-  }
+  anchors: ['produtos', 'artigos', 'contato'],
+  navigationTooltips: ['Produtos', 'Artigos', 'Contato'],
+  showActiveTooltip: true,
 });
