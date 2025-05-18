@@ -1,66 +1,37 @@
-// FULLPAGE INIT
-document.addEventListener('DOMContentLoaded', () => {
-  new fullpage('#fullpage', {
-    autoScrolling: true,
-    navigation: true,
-    anchors: ['produtos', 'artigos', 'contato'],
-    navigationTooltips: ['Produtos', 'Artigos', 'Contato'],
-    showActiveTooltip: true,
-    scrollHorizontally: false
-  });
+// Ativa/desativa menu hambúrguer
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('nav');
 
-  // MENU HAMBÚRGUER FUNCIONAL
-  const hamburger = document.querySelector('.hamburger');
-  const menu = document.getElementById('menu');
+hamburger.addEventListener('click', () => {
+  nav.classList.toggle('hidden');
+});
 
-  hamburger.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
-  });
-
-// ROLA PARA A SEÇÃO AO CLICAR NO LINK (usando href normalmente)
-document.querySelectorAll('#menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    menu.classList.add('hidden'); // Fecha o menu ao clicar
+// Scroll suave para as seções
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const sectionId = link.getAttribute('href');
+    const target = document.querySelector(sectionId);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+      nav.classList.add('hidden'); // fecha menu após clique
+    }
   });
 });
 
+// Animação flutuante da logo SVG
+function animateLogoFloat() {
+  const logo = document.getElementById('hero-logo');
+  if (!logo) return;
 
-  // PARTICULAS TSPARTICLES
-  tsParticles.load('tsparticles', {
-    fullScreen: { enable: false },
-    background: { color: { value: 'transparent' } },
-    particles: {
-      number: {
-        value: 80,
-        density: { enable: true, value_area: 800 }
-      },
-      color: { value: '#1f4fff' },
-      shape: { type: 'circle' },
-      opacity: {
-        value: 0.3,
-        random: true
-      },
-      size: {
-        value: 3,
-        random: true
-      },
-      move: {
-        enable: true,
-        speed: 0.6,
-        direction: 'none',
-        out_mode: 'out'
-      }
-    },
-    interactivity: {
-      events: {
-        onhover: { enable: true, mode: 'repulse' },
-        onclick: { enable: true, mode: 'push' }
-      },
-      modes: {
-        repulse: { distance: 100, duration: 0.4 },
-        push: { quantity: 4 }
-      }
-    },
-    detectRetina: true
-  });
-});
+  let direction = 1;
+  let position = 0;
+
+  setInterval(() => {
+    position += direction * 0.5;
+    if (position > 10 || position < -10) direction *= -1;
+    logo.style.transform = `translateY(${position}px)`;
+  }, 50);
+}
+
+animateLogoFloat();
