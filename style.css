@@ -3,7 +3,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #dbeafe, #bfdbfe);
   color: #111;
-  overflow: auto; /* Corrigido para permitir scroll */
+  overflow: hidden;
 }
 
 header {
@@ -32,7 +32,7 @@ header {
   cursor: pointer;
   gap: 5px;
   position: absolute;
-  right: 40px; /* Ajustado mais à esquerda como solicitado */
+  right: 60px; /* Agora mais à esquerda */
   top: 18px;
 }
 
