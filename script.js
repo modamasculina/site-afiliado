@@ -3,14 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
   new fullpage('#fullpage', {
     autoScrolling: true,
     navigation: true,
-    anchors: ['inicio', 'produtos', 'artigos', 'contato'],
-    navigationTooltips: ['Início', 'Produtos', 'Artigos', 'Contato'],
+    anchors: ['produtos', 'artigos', 'contato'],
+    navigationTooltips: ['Produtos', 'Artigos', 'Contato'],
     showActiveTooltip: true,
     scrollHorizontally: false
   });
 
   // MENU HAMBÚRGUER FUNCIONAL
-  const hamburger = document.getElementById('hamburger');
+  const hamburger = document.querySelector('.hamburger');
   const menu = document.getElementById('menu');
 
   hamburger.addEventListener('click', () => {
@@ -27,11 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // PARTICULAS TSPARTICLES
   tsParticles.load('tsparticles', {
     fullScreen: { enable: false },
-    background: {
-      color: {
-        value: 'transparent'
-      }
-    },
+    background: { color: { value: 'transparent' } },
     particles: {
       number: {
         value: 80,
@@ -41,8 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
       shape: { type: 'circle' },
       opacity: {
         value: 0.3,
-        random: true,
-        anim: { enable: false }
+        random: true
       },
       size: {
         value: 3,
