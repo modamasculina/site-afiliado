@@ -1,30 +1,24 @@
-// Inicializa o FullPage.js
 document.addEventListener("DOMContentLoaded", function () {
   new fullpage("#fullpage", {
-    autoScrolling: true,
-    navigation: true,
     anchors: ["produtos", "artigos", "contato"],
-    navigationTooltips: ["Início", "Artigos", "Contato"],
+    navigation: true,
+    navigationTooltips: ["Produtos", "Artigos", "Fale Conosco"],
     showActiveTooltip: true,
-    scrollingSpeed: 700,
-    controlArrows: false,
-    scrollOverflow: true,
+    autoScrolling: true,
+    fitToSection: true,
+    scrollOverflow: true
   });
 
-  // Funcionalidade do menu hamburguer
   const hamburger = document.getElementById("hamburger");
-  const nav = document.getElementById("nav");
+  const menu = document.getElementById("menu");
 
   hamburger.addEventListener("click", () => {
-    nav.classList.toggle("hidden");
+    menu.classList.toggle("hidden");
   });
 
-  // Fecha o menu ao clicar em qualquer link
-  const navLinks = nav.querySelectorAll("a");
-  navLinks.forEach((link) => {
+  document.querySelectorAll("nav a").forEach(link => {
     link.addEventListener("click", () => {
-      nav.classList.add("hidden");
+      menu.classList.add("hidden");
     });
   });
 });
-
