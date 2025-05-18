@@ -1,107 +1,73 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Moda Masculina</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link href="style.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/lucide-static@0.289.0/font/css/lucide.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
   <div id="particles-js"></div>
-
-  <header class="header">
-    <h1 class="logo">Moda Masculina</h1>
-    <nav>
-      <svg id="menu-icon" onclick="toggleMenu()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80" width="40" height="40">
-        <rect width="100" height="10"></rect>
-        <rect y="30" width="100" height="10"></rect>
-        <rect y="60" width="100" height="10"></rect>
-      </svg>
-      <ul id="menu">
-        <li><a href="#produtos">Produtos</a></li>
-        <li><a href="#artigos">Artigos</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
+  <header>
+    <div class="logo-text">Moda Masculina</div>
+    <svg onclick="toggleMenu()" class="menu-toggle" viewBox="0 0 100 80" width="30" height="30">
+      <rect width="100" height="15" rx="8" fill="#1f4fff"></rect>
+      <rect y="30" width="100" height="15" rx="8" fill="#1f4fff"></rect>
+      <rect y="60" width="100" height="15" rx="8" fill="#1f4fff"></rect>
+    </svg>
+    <nav id="menu" class="menu">
+      <a href="#produtos"><i class="lucide-shopping-bag"></i> Produtos</a>
+      <a href="#artigos"><i class="lucide-file-text"></i> Artigos</a>
+      <a href="#contato"><i class="lucide-mail"></i> Contato</a>
     </nav>
   </header>
 
-  <section class="search-section">
-    <input type="text" id="searchInput" placeholder="Pesquisar produtos..." />
+  <div class="pesquisa">
+    <input type="text" id="busca" placeholder="Pesquisar produtos...">
+  </div>
+
+  <section id="produtos" data-aos="fade-up">
+    <div class="produto" data-categoria="camisas">
+      <img src="https://m.media-amazon.com/images/I/61UNb3Rp4nL._AC_UX679_.jpg" alt="Camisa Slim Fit Masculina">
+      <h3>Camisa Slim Fit</h3>
+      <a href="https://www.amazon.com.br/dp/B0BXXDYZ88?tag=seulinkafiliado">Ver Produto</a>
+    </div>
+    <div class="produto" data-categoria="calçados">
+      <img src="https://m.media-amazon.com/images/I/61P5Ynvk0rL._AC_UY500_.jpg" alt="Tênis Masculino Casual">
+      <h3>Tênis Casual</h3>
+      <a href="https://www.amazon.com.br/dp/B0BYJXD1ZC?tag=seulinkafiliado">Ver Produto</a>
+    </div>
+    <div class="produto" data-categoria="acessorios">
+      <img src="https://m.media-amazon.com/images/I/61pZAh8RfdL._AC_UL640_QL65_.jpg" alt="Relógio Masculino Estiloso">
+      <h3>Relógio Estiloso</h3>
+      <a href="https://www.amazon.com.br/dp/B08N5LR3M3?tag=seulinkafiliado">Ver Produto</a>
+    </div>
   </section>
 
-  <main>
-    <section id="produtos" class="parallax" data-speed="0.2">
-      <h2>Produtos em Destaque</h2>
-      <div class="filtros">
-        <button onclick="filtrarCategoria('todos')">Todos</button>
-        <button onclick="filtrarCategoria('camisas')">Camisas</button>
-        <button onclick="filtrarCategoria('calçados')">Calçados</button>
-        <button onclick="filtrarCategoria('acessorios')">Acessórios</button>
-      </div>
-      <div class="produtos">
-        <div class="produto" data-categoria="camisas" data-aos="zoom-in">
-          <img src="https://m.media-amazon.com/images/I/61UNb3Rp4nL._AC_UX679_.jpg" alt="Camisa Slim Fit Masculina">
-          <h3>Camisa Slim Fit</h3>
-          <a href="#">Ver Produto</a>
-        </div>
-        <div class="produto" data-categoria="calçados" data-aos="zoom-in" data-aos-delay="100">
-          <img src="https://m.media-amazon.com/images/I/61P5Ynvk0rL._AC_UY500_.jpg" alt="Tênis Masculino Casual">
-          <h3>Tênis Casual</h3>
-          <a href="#">Ver Produto</a>
-        </div>
-        <div class="produto" data-categoria="acessorios" data-aos="zoom-in" data-aos-delay="200">
-          <img src="https://m.media-amazon.com/images/I/61pZAh8RfdL._AC_UL640_QL65_.jpg" alt="Relógio Masculino Estiloso">
-          <h3>Relógio Estiloso</h3>
-          <a href="#">Ver Produto</a>
-        </div>
-      </div>
-    </section>
+  <section id="artigos" data-aos="fade-up">
+    <div class="card">
+      <h3>Como escolher sua camisa ideal</h3>
+      <p>Dicas práticas para encontrar o caimento perfeito.</p>
+    </div>
+    <div class="card">
+      <h3>Tendências em calçados 2025</h3>
+      <p>As novidades em tênis e sapatos masculinos.</p>
+    </div>
+  </section>
 
-    <section id="artigos" class="parallax" data-speed="0.1">
-      <h2>Artigos Recentes</h2>
-      <div class="cards">
-        <div class="card" data-aos="fade-up">
-          <h3>Como se vestir bem com pouco</h3>
-          <p>Dicas simples para montar um guarda-roupa elegante com baixo investimento.</p>
-        </div>
-        <div class="card" data-aos="fade-up" data-aos-delay="150">
-          <h3>Top 5 acessórios masculinos</h3>
-          <p>Itens indispensáveis que elevam qualquer visual.</p>
-        </div>
-      </div>
-    </section>
+  <section id="contato" data-aos="fade-up">
+    <div class="formulario">
+      <h3>Fale conosco</h3>
+      <input type="text" placeholder="Seu nome">
+      <input type="email" placeholder="Seu e-mail">
+      <textarea placeholder="Sua mensagem"></textarea>
+      <button onclick="alert('Mensagem enviada!')">Enviar</button>
+    </div>
+  </section>
 
-    <section id="contato" class="parallax" data-speed="0.05">
-      <h2>Fale Conosco</h2>
-      <form>
-        <input type="text" placeholder="Seu nome" required />
-        <input type="email" placeholder="Seu e-mail" required />
-        <textarea placeholder="Mensagem"></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-    </section>
-  </main>
-
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="script.js"></script>
-  <script>
-    function filtrarCategoria(categoria) {
-      const produtos = document.querySelectorAll('.produto');
-      produtos.forEach(produto => {
-        const cat = produto.getAttribute('data-categoria');
-        produto.style.display = (categoria === 'todos' || cat === categoria) ? 'block' : 'none';
-      });
-    }
-
-    document.getElementById('searchInput').addEventListener('input', function () {
-      const termo = this.value.toLowerCase();
-      document.querySelectorAll('.produto').forEach(produto => {
-        const texto = produto.innerText.toLowerCase();
-        produto.style.display = texto.includes(termo) ? 'block' : 'none';
-      });
-    });
-  </script>
 </body>
 </html>
