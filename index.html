@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Moda Masculina</title>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://unpkg.com/lucide@latest/dist/umd/lucide.css" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -52,6 +53,7 @@
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       padding: 10px;
+      min-width: 120px;
     }
     .menu.active {
       display: flex;
@@ -62,10 +64,11 @@
       margin: 5px 0;
       font-size: 16px;
       position: relative;
-      transition: color 0.3s;
+      transition: color 0.3s, background 0.3s;
+      color: #1f4fff;
     }
     .menu a:hover {
-      color: #1f4fff;
+      background: #eef3ff;
     }
     .menu a::after {
       content: "";
@@ -89,6 +92,12 @@
       font-family: 'Century Gothic', sans-serif;
       font-size: 28px;
       margin-bottom: 20px;
+      position: relative;
+      animation: titleFadeIn 1.2s ease-in-out;
+    }
+    @keyframes titleFadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .barra-pesquisa input {
       padding: 10px;
@@ -189,6 +198,11 @@
         <h3>Relógio Estiloso</h3>
         <a href="https://www.amazon.com.br/dp/B08N5LR3M3?tag=seulinkafiliado">Ver Produto</a>
       </div>
+      <div class="produto" data-categoria="calçados" data-aos="zoom-in" data-aos-delay="300">
+        <img src="https://m.media-amazon.com/images/I/61TbkI43g8L._AC_UY500_.jpg" alt="Bota Coturno Masculina">
+        <h3>Bota Coturno Masculina</h3>
+        <a href="https://www.amazon.com.br/dp/B09LHD9VJH?tag=seulinkafiliado">Ver Produto</a>
+      </div>
     </div>
   </section>
 
@@ -208,17 +222,17 @@
     AOS.init({ duration: 1000, once: true });
 
     function toggleMenu() {
-      document.getElementById('menu').classList.toggle('active');
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('active');
+      const audio = new Audio('https://cdn.pixabay.com/audio/2022/03/15/audio_8d6b3b9b26.mp3');
+      audio.volume = 0.1;
+      audio.play();
     }
 
     function filtrarProdutos(categoria) {
       const produtos = document.querySelectorAll('.produto');
       produtos.forEach(p => {
-        if (categoria === 'todos' || p.dataset.categoria === categoria) {
-          p.style.display = 'block';
-        } else {
-          p.style.display = 'none';
-        }
+        p.style.display = (categoria === 'todos' || p.dataset.categoria === categoria) ? 'block' : 'none';
       });
     }
 
