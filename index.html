@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Moda Masculina</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    /* Reset */
     * {
       margin: 0;
       padding: 0;
@@ -15,10 +13,20 @@
     html, body {
       height: 100%;
       font-family: 'Century Gothic', sans-serif;
+      background: linear-gradient(to bottom, #e6f0ff, #f5faff);
+      color: #222;
       scroll-behavior: smooth;
-      background: linear-gradient(to bottom, #e4f0ff, #f7faff);
       overflow-x: hidden;
-      color: #111;
+    }
+
+    /* Estilo para partículas */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
     }
 
     header {
@@ -26,53 +34,43 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 60px;
+      padding: 1rem 2rem;
+      z-index: 100;
       display: flex;
+      justify-content: flex-start;
       align-items: center;
-      justify-content: space-between;
-      padding: 0 2rem;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      background: transparent;
     }
 
-    .logo {
-      font-weight: bold;
+    .logo-text {
       font-size: 1.5rem;
+      font-weight: bold;
       color: #1f4fff;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      text-shadow: 0 0 10px rgba(31, 79, 255, 0.3);
     }
 
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .menu-toggle span {
-      height: 3px;
-      width: 25px;
-      background: #1f4fff;
-      margin: 4px 0;
-      transition: 0.3s;
-    }
-
-    nav {
+    .sidebar {
+      position: fixed;
+      top: 50%;
+      right: 2rem;
+      transform: translateY(-50%);
       display: flex;
-      gap: 2rem;
+      flex-direction: column;
+      gap: 1.2rem;
+      z-index: 100;
     }
 
-    nav a {
+    .sidebar a {
+      font-family: 'Arial', sans-serif;
       text-decoration: none;
       color: #1f4fff;
-      font-weight: 600;
-      position: relative;
+      font-weight: bold;
+      font-size: 1rem;
       transition: color 0.3s;
+      position: relative;
     }
 
-    nav a::after {
+    .sidebar a::after {
       content: '';
       position: absolute;
       left: 0;
@@ -85,44 +83,15 @@
       transition: transform 0.3s ease;
     }
 
-    nav a:hover::after {
+    .sidebar a:hover::after {
       transform: scaleX(1);
       transform-origin: left;
-    }
-
-    .parallax-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 200vh;
-      background: radial-gradient(circle at center, rgba(200,220,255,0.3), transparent 70%);
-      z-index: -1;
-      animation: moveBg 20s linear infinite;
-    }
-
-    @keyframes moveBg {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-100px); }
     }
 
     section {
       padding: 6rem 2rem 4rem;
       max-width: 1000px;
       margin: auto;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeUp 1s ease-out forwards;
-    }
-
-    section:nth-of-type(2) { animation-delay: 0.3s; }
-    section:nth-of-type(3) { animation-delay: 0.6s; }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     section h2 {
@@ -130,6 +99,7 @@
       margin-bottom: 1rem;
       border-left: 5px solid #1f4fff;
       padding-left: 0.5rem;
+      font-weight: bold;
     }
 
     .produtos-grid {
@@ -143,13 +113,14 @@
       background: #fff;
       padding: 1rem;
       border-radius: 8px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
       text-align: center;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .produto:hover {
       transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
 
     .produto img {
@@ -159,6 +130,7 @@
 
     .produto h3 {
       margin: 0.5rem 0;
+      font-weight: bold;
     }
 
     .produto a {
@@ -171,47 +143,21 @@
       border-radius: 4px;
       font-weight: bold;
     }
-
-    /* Responsivo */
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        background: #fff;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 200px;
-        padding: 1rem;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      }
-
-      nav.active {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-    }
   </style>
 </head>
 <body>
-  <div class="parallax-bg"></div>
+  <!-- Partículas -->
+  <div id="particles-js"></div>
 
   <header>
-    <div class="logo">Moda Masculina</div>
-    <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <nav>
-      <a href="#produtos">Produtos</a>
-      <a href="#artigos">Artigos</a>
-      <a href="#contato">Contato</a>
-    </nav>
+    <div class="logo-text">Moda Masculina</div>
   </header>
+
+  <div class="sidebar">
+    <a href="#produtos">Produtos</a>
+    <a href="#artigos">Artigos</a>
+    <a href="#contato">Contato</a>
+  </div>
 
   <section id="produtos">
     <h2>Produtos</h2>
@@ -244,19 +190,52 @@
     <p>Fale conosco pelo e-mail: contato@modamasculina.com</p>
   </section>
 
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.4/tsparticles.bundle.min.js"></script>
   <script>
-    // Animações suaves de entrada para sessões
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.animationPlayState = 'running';
+    tsParticles.load("particles-js", {
+      background: {
+        color: {
+          value: "transparent"
         }
-      });
-    }, { threshold: 0.1 });
-
-    sections.forEach(section => {
-      observer.observe(section);
+      },
+      fpsLimit: 60,
+      particles: {
+        color: {
+          value: "#1f4fff"
+        },
+        links: {
+          color: "#1f4fff",
+          distance: 100,
+          enable: true,
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: "none",
+          outModes: {
+            default: "bounce"
+          }
+        },
+        number: {
+          value: 60,
+          density: {
+            enable: true,
+            area: 800
+          }
+        },
+        opacity: {
+          value: 0.4
+        },
+        shape: {
+          type: "circle"
+        },
+        size: {
+          value: { min: 1, max: 4 }
+        }
+      },
+      detectRetina: true
     });
   </script>
 </body>
