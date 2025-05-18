@@ -71,21 +71,18 @@
     }
 
     .sidebar a::after {
-      content: '';
+      content: '➜';
       position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 100%;
-      height: 2px;
-      background-color: #1f4fff;
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.3s ease;
+      right: -1.5rem;
+      top: 0;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      color: #1f4fff;
     }
 
     .sidebar a:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
+      opacity: 1;
+      transform: translateX(5px);
     }
 
     section {
@@ -207,7 +204,7 @@
           color: "#1f4fff",
           distance: 100,
           enable: true,
-          opacity: 0.4,
+          opacity: 0.3,
           width: 1
         },
         move: {
@@ -219,20 +216,20 @@
           }
         },
         number: {
-          value: 60,
+          value: 50,
           density: {
             enable: true,
             area: 800
           }
         },
         opacity: {
-          value: 0.4
+          value: 0.3
         },
         shape: {
           type: "circle"
         },
         size: {
-          value: { min: 1, max: 4 }
+          value: { min: 1, max: 3 }
         }
       },
       detectRetina: true
