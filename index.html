@@ -4,60 +4,104 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Moda Masculina</title>
-
-  <!-- FullPage.js CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css" />
-
-  <!-- Fonte moderna -->
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
-
-  <!-- Seu CSS -->
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
 <body>
-
-  <!-- Partículas -->
   <div id="particles-js"></div>
 
-  <!-- FullPage Seções -->
-  <div id="fullpage">
-    <div class="section" id="home">
-      <div class="logo">
-        <!-- Logo simples como um quadrado diagonal com um traço -->
-        <svg width="100" height="100" viewBox="0 0 100 100">
-          <rect x="20" y="20" width="60" height="60" transform="rotate(45 50 50)" stroke="#fff" stroke-width="4" fill="none"/>
-          <line x1="30" y1="70" x2="70" y2="30" stroke="#fff" stroke-width="4"/>
-        </svg>
+  <header class="header">
+    <h1 class="logo">Moda Masculina</h1>
+    <nav>
+      <svg id="menu-icon" onclick="toggleMenu()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80" width="40" height="40">
+        <rect width="100" height="10"></rect>
+        <rect y="30" width="100" height="10"></rect>
+        <rect y="60" width="100" height="10"></rect>
+      </svg>
+      <ul id="menu">
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#artigos">Artigos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="search-section">
+    <input type="text" id="searchInput" placeholder="Pesquisar produtos..." />
+  </section>
+
+  <main>
+    <section id="produtos" class="parallax" data-speed="0.2">
+      <h2>Produtos em Destaque</h2>
+      <div class="filtros">
+        <button onclick="filtrarCategoria('todos')">Todos</button>
+        <button onclick="filtrarCategoria('camisas')">Camisas</button>
+        <button onclick="filtrarCategoria('calçados')">Calçados</button>
+        <button onclick="filtrarCategoria('acessorios')">Acessórios</button>
       </div>
-      <h1>Moda Masculina</h1>
-      <p>Explore o melhor da moda para homens jovens</p>
-    </div>
+      <div class="produtos">
+        <div class="produto" data-categoria="camisas" data-aos="zoom-in">
+          <img src="https://m.media-amazon.com/images/I/61UNb3Rp4nL._AC_UX679_.jpg" alt="Camisa Slim Fit Masculina">
+          <h3>Camisa Slim Fit</h3>
+          <a href="#">Ver Produto</a>
+        </div>
+        <div class="produto" data-categoria="calçados" data-aos="zoom-in" data-aos-delay="100">
+          <img src="https://m.media-amazon.com/images/I/61P5Ynvk0rL._AC_UY500_.jpg" alt="Tênis Masculino Casual">
+          <h3>Tênis Casual</h3>
+          <a href="#">Ver Produto</a>
+        </div>
+        <div class="produto" data-categoria="acessorios" data-aos="zoom-in" data-aos-delay="200">
+          <img src="https://m.media-amazon.com/images/I/61pZAh8RfdL._AC_UL640_QL65_.jpg" alt="Relógio Masculino Estiloso">
+          <h3>Relógio Estiloso</h3>
+          <a href="#">Ver Produto</a>
+        </div>
+      </div>
+    </section>
 
-    <div class="section" id="produtos">
-      <h2>Produtos em Alta</h2>
-      <p>Confira os produtos mais recomendados do momento</p>
-      <!-- Você pode adicionar cards de afiliado aqui -->
-    </div>
+    <section id="artigos" class="parallax" data-speed="0.1">
+      <h2>Artigos Recentes</h2>
+      <div class="cards">
+        <div class="card" data-aos="fade-up">
+          <h3>Como se vestir bem com pouco</h3>
+          <p>Dicas simples para montar um guarda-roupa elegante com baixo investimento.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="150">
+          <h3>Top 5 acessórios masculinos</h3>
+          <p>Itens indispensáveis que elevam qualquer visual.</p>
+        </div>
+      </div>
+    </section>
 
-    <div class="section" id="artigos">
-      <h2>Artigos e Dicas</h2>
-      <p>Leia artigos sobre estilo, tendências e cuidados pessoais</p>
-    </div>
-
-    <div class="section" id="contato">
+    <section id="contato" class="parallax" data-speed="0.05">
       <h2>Fale Conosco</h2>
-      <p>Entre em contato para dúvidas ou parcerias</p>
-      <!-- Formulário ou redes sociais -->
-    </div>
-  </div>
+      <form>
+        <input type="text" placeholder="Seu nome" required />
+        <input type="email" placeholder="Seu e-mail" required />
+        <textarea placeholder="Mensagem"></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
 
-  <!-- Particles.js -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
-  <!-- FullPage.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
-
-  <!-- Seu Script -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="script.js"></script>
+  <script>
+    function filtrarCategoria(categoria) {
+      const produtos = document.querySelectorAll('.produto');
+      produtos.forEach(produto => {
+        const cat = produto.getAttribute('data-categoria');
+        produto.style.display = (categoria === 'todos' || cat === categoria) ? 'block' : 'none';
+      });
+    }
+
+    document.getElementById('searchInput').addEventListener('input', function () {
+      const termo = this.value.toLowerCase();
+      document.querySelectorAll('.produto').forEach(produto => {
+        const texto = produto.innerText.toLowerCase();
+        produto.style.display = texto.includes(termo) ? 'block' : 'none';
+      });
+    });
+  </script>
 </body>
 </html>
