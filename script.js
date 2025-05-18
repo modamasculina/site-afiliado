@@ -1,5 +1,8 @@
 // Inicializa o AOS para animações ao rolar
-AOS.init();
+AOS.init({
+  duration: 1000,
+  once: true,
+});
 
 // Alterna o menu hamburguer
 function toggleMenu() {
