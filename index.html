@@ -1,53 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Moda Masculina</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
-</head>
-<body>
-  <header>
-    <img src="logo_transparente.png" alt="Logo Moda Masculina" class="logo" />
-    <div class="menu-icon" onclick="toggleMenu()">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moda Masculina</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.3.0/tsparticles.bundle.min.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div id="tsparticles"></div>
+
+    <!-- Menu Hambúrguer -->
+    <header>
+      <div class="logo-container">
+        <img src="logo.png" alt="Moda Masculina Logo" class="logo" />
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav id="menu" class="hidden">
+        <a href="#produtos">Produtos</a>
+        <a href="#artigos">Artigos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </header>
+
+    <!-- Seções FullPage -->
+    <div id="fullpage">
+      <!-- Hero Section -->
+      <section class="section hero">
+        <div class="hero-content">
+          <img src="logo.png" alt="Logo" class="hero-logo" />
+          <h1>Moda Masculina</h1>
+        </div>
+      </section>
+
+      <!-- Produtos -->
+      <section class="section" id="produtos">
+        <h2>Produtos em destaque</h2>
+        <p>Explore os melhores produtos para estilo masculino.</p>
+      </section>
+
+      <!-- Artigos -->
+      <section class="section" id="artigos">
+        <h2>Artigos e Dicas</h2>
+        <p>Descubra tendências e dicas sobre moda masculina.</p>
+      </section>
+
+      <!-- Contato -->
+      <section class="section" id="contato">
+        <h2>Fale Conosco</h2>
+        <form action="https://formsubmit.co/brendhoqueiroga@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="name" placeholder="Seu nome" required />
+          <input type="email" name="email" placeholder="Seu email" required />
+          <textarea name="message" placeholder="Sua mensagem" required></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
     </div>
-    <nav class="menu">
-      <a href="#produtos">Produtos</a>
-      <a href="#artigos">Artigos</a>
-      <a href="#contato">Contato</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero">
-      <img src="logo_transparente.png" alt="Logo" class="hero-logo" />
-    </section>
-
-    <section id="produtos" class="section">
-      <h2>Produtos em Destaque</h2>
-      <p>Veja as melhores ofertas de moda masculina.</p>
-    </section>
-
-    <section id="artigos" class="section">
-      <h2>Artigos Recentes</h2>
-      <p>Dicas de estilo, grooming, tendências e muito mais.</p>
-    </section>
-
-    <section id="contato" class="section">
-      <h2>Fale Conosco</h2>
-      <form action="https://formsubmit.co/brendhoqueiroga@gmail.com" method="POST">
-        <input type="text" name="name" placeholder="Seu nome" required>
-        <input type="email" name="email" placeholder="Seu e-mail" required>
-        <textarea name="message" placeholder="Sua mensagem" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-    </section>
-  </main>
-
-  <div id="particles-js"></div>
-</body>
+  </body>
 </html>
