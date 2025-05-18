@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Moda Masculina</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -11,79 +12,69 @@
     }
 
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0e0e0e;
+      color: #ffffff;
     }
 
-    /* HERO / TOPO COM ANIMAÇÃO */
-    .hero {
-      position: relative;
-      height: 100vh;
-      background: #000;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    header {
+      background: transparent;
+      color: #fff;
+      padding: 2rem 2rem 3rem;
       text-align: center;
+      position: relative;
       overflow: hidden;
     }
 
-    #particles-js {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
+    .site-title {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      background: linear-gradient(90deg, #0ff, #1f4fff, #0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 5s infinite linear;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
+    @keyframes shine {
+      0% {
+        background-position: -500%;
+      }
+      100% {
+        background-position: 500%;
+      }
     }
 
-    .logo {
-      width: 120px;
-      margin-bottom: 20px;
-    }
-
-    .titulo {
-      font-size: 2.5rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #00ffff;
-      margin-bottom: 1rem;
-    }
-
-    .hero nav ul {
+    nav ul {
       list-style: none;
       display: flex;
-      gap: 2rem;
       justify-content: center;
-      padding: 0;
+      gap: 2rem;
       margin-top: 1rem;
     }
 
-    .hero nav a {
+    nav a {
       color: #fff;
       text-decoration: none;
-      font-size: 1.1rem;
+      font-size: 1rem;
       position: relative;
+      transition: all 0.3s ease;
     }
 
-    .hero nav a::after {
+    nav a::after {
       content: '';
       position: absolute;
-      bottom: -5px;
       left: 0;
+      bottom: -4px;
       width: 100%;
       height: 2px;
-      background: #00ffff;
+      background-color: #1f4fff;
       transform: scaleX(0);
       transform-origin: right;
       transition: transform 0.3s ease;
     }
 
-    .hero nav a:hover::after {
+    nav a:hover::after {
       transform: scaleX(1);
       transform-origin: left;
     }
@@ -109,10 +100,10 @@
     }
 
     .produto {
-      background: #fff;
+      background: #1a1a1a;
       padding: 1rem;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      box-shadow: 0 0 10px rgba(31, 79, 255, 0.2);
       text-align: center;
     }
 
@@ -147,20 +138,16 @@
 </head>
 <body>
 
-  <section class="hero">
-    <div id="particles-js"></div>
-    <div class="hero-content">
-      <img src="logo_moda_masculina_transparente.png" alt="Logo Moda Masculina" class="logo" />
-      <h1 class="titulo">Moda Masculina</h1>
-      <nav>
-        <ul>
-          <li><a href="#produtos">Produtos</a></li>
-          <li><a href="#artigos">Artigos</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
-    </div>
-  </section>
+  <header>
+    <h1 class="site-title">Moda Masculina</h1>
+    <nav>
+      <ul>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#artigos">Artigos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <section id="produtos">
     <h2>Produtos</h2>
@@ -197,57 +184,5 @@
     &copy; 2025 Moda Masculina. Todos os direitos reservados.
   </footer>
 
-  <!-- Scripts das partículas -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": {
-          "value": 80,
-          "density": { "enable": true, "value_area": 800 }
-        },
-        "color": { "value": "#00ffff" },
-        "shape": {
-          "type": "circle",
-          "stroke": { "width": 0, "color": "#000000" }
-        },
-        "opacity": {
-          "value": 0.5,
-          "random": true
-        },
-        "size": {
-          "value": 3,
-          "random": true
-        },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#00ffff",
-          "opacity": 0.4,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 3,
-          "direction": "none",
-          "out_mode": "out"
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": { "enable": true, "mode": "repulse" },
-          "onclick": { "enable": true, "mode": "push" }
-        },
-        "modes": {
-          "repulse": { "distance": 100 },
-          "push": { "particles_nb": 4 }
-        }
-      },
-      "retina_detect": true
-    });
-  </script>
-
 </body>
 </html>
-
