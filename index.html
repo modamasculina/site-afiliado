@@ -1,92 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Moda Masculina</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.3.0/tsparticles.bundle.min.js" defer></script>
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <div id="tsparticles"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Moda Masculina</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css"/>
+</head>
+<body>
+  <div id="particles-js"></div>
 
-    <!-- Menu Hambúrguer -->
-    <header>
-      <div class="logo-container">
-        <h1 class="site-title">Moda Masculina</h1>
-      </div>
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <nav id="menu" class="hidden">
-        <a href="#produtos">Produtos</a>
-        <a href="#artigos">Artigos</a>
-        <a href="#contato">Contato</a>
-      </nav>
-    </header>
-
-    <!-- Seções FullPage -->
-    <div id="fullpage">
-      <!-- Produtos -->
-      <section class="section" id="produtos">
-        <h2>Produtos em destaque</h2>
-        <input type="text" placeholder="Pesquisar produto..." class="search-box" />
-        <div class="produtos-grid">
-          <div class="produto">
-            <img src="https://via.placeholder.com/150" alt="Produto 1">
-            <h3>Relógio Elegante</h3>
-            <p>Estilo moderno com pulseira de couro.</p>
-            <a href="#" class="btn">Ver Produto</a>
-          </div>
-          <div class="produto">
-            <img src="https://via.placeholder.com/150" alt="Produto 2">
-            <h3>Tênis Casual</h3>
-            <p>Confortável para o dia a dia.</p>
-            <a href="#" class="btn">Ver Produto</a>
-          </div>
-          <div class="produto">
-            <img src="https://via.placeholder.com/150" alt="Produto 3">
-            <h3>Camisa Social Slim</h3>
-            <p>Elegância em qualquer ocasião.</p>
-            <a href="#" class="btn">Ver Produto</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Artigos -->
-      <section class="section" id="artigos">
-        <h2>Artigos e Dicas</h2>
-        <div class="artigos-grid">
-          <article>
-            <h3>Como combinar cores</h3>
-            <p>Aprenda a equilibrar cores no seu visual sem esforço.</p>
-          </article>
-          <article>
-            <h3>Estilo minimalista</h3>
-            <p>Descubra como montar um guarda-roupa versátil e elegante.</p>
-          </article>
-        </div>
-      </section>
-
-      <!-- Contato -->
-      <section class="section" id="contato">
-        <h2>Fale Conosco</h2>
-        <form action="https://formsubmit.co/brendhoqueiroga@gmail.com" method="POST">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="text" name="name" placeholder="Seu nome" required />
-          <input type="email" name="email" placeholder="Seu email" required />
-          <textarea name="message" placeholder="Sua mensagem" required></textarea>
-          <button type="submit">Enviar</button>
-        </form>
-      </section>
+  <header>
+    <div class="site-title">Moda Masculina</div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-  </body>
+    <nav id="navMenu" class="hidden">
+      <a href="#produtos">Início</a>
+      <a href="#artigos">Artigos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <div id="fullpage">
+    <!-- Seção Produtos -->
+    <div class="section" id="produtos">
+      <h1>Produtos em destaque</h1>
+      <input type="text" class="search-box" placeholder="Pesquisar produtos..." />
+      <div class="produtos-grid">
+        <div class="produto">
+          <img src="https://m.media-amazon.com/images/I/71T9b3Q+GqL._AC_UL480_FMwebp_QL65_.jpg" alt="Camisa social" />
+          <h3>Camisa Social Slim</h3>
+          <a href="https://www.amazon.com.br/dp/B08XYZ" class="btn" target="_blank">Ver produto</a>
+        </div>
+        <div class="produto">
+          <img src="https://m.media-amazon.com/images/I/71qVC7RVMcL._AC_UL480_FMwebp_QL65_.jpg" alt="Relógio de Pulso" />
+          <h3>Relógio Masculino</h3>
+          <a href="https://www.amazon.com.br/dp/B09ABC" class="btn" target="_blank">Ver produto</a>
+        </div>
+        <div class="produto">
+          <img src="https://m.media-amazon.com/images/I/61dQ7pIC8JL._AC_UL480_FMwebp_QL65_.jpg" alt="Tênis Esportivo" />
+          <h3>Tênis Casual</h3>
+          <a href="https://www.amazon.com.br/dp/B07XYZ" class="btn" target="_blank">Ver produto</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção Artigos -->
+    <div class="section" id="artigos">
+      <h1>Artigos de Moda</h1>
+      <div class="artigos-grid">
+        <div>
+          <h3>Como montar um look elegante com pouco dinheiro</h3>
+          <p>Dicas práticas para você se vestir bem gastando pouco.</p>
+        </div>
+        <div>
+          <h3>Tendências masculinas de 2025</h3>
+          <p>Descubra o que vai bombar nas ruas e redes sociais neste ano.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção Contato -->
+    <div class="section" id="contato">
+      <h1>Fale Conosco</h1>
+      <form action="https://formsubmit.co/brendhoqueiroga@gmail.com" method="POST">
+        <input type="text" name="name" placeholder="Seu nome" required />
+        <input type="email" name="email" placeholder="Seu e-mail" required />
+        <textarea name="message" rows="5" placeholder="Sua mensagem" required></textarea>
+        <input type="hidden" name="_captcha" value="false">
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.20/dist/fullpage.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="script.js"></script>
+</body>
 </html>
