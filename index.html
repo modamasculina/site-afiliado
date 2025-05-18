@@ -2,22 +2,20 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Moda Masculina</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css"/>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css" />
 </head>
 <body>
-  <div id="particles-js"></div>
-
   <header>
     <div class="site-title">Moda Masculina</div>
-    <div class="hamburger" onclick="toggleMenu()">
+    <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>
       <span></span>
     </div>
-    <nav id="navMenu" class="hidden">
+    <nav id="nav" class="hidden">
       <a href="#produtos">Início</a>
       <a href="#artigos">Artigos</a>
       <a href="#contato">Contato</a>
@@ -25,59 +23,58 @@
   </header>
 
   <div id="fullpage">
-    <!-- Seção Produtos -->
     <div class="section" id="produtos">
-      <h1>Produtos em destaque</h1>
+      <h1>Produtos em Destaque</h1>
       <input type="text" class="search-box" placeholder="Pesquisar produtos..." />
       <div class="produtos-grid">
         <div class="produto">
-          <img src="https://m.media-amazon.com/images/I/71T9b3Q+GqL._AC_UL480_FMwebp_QL65_.jpg" alt="Camisa social" />
-          <h3>Camisa Social Slim</h3>
-          <a href="https://www.amazon.com.br/dp/B08XYZ" class="btn" target="_blank">Ver produto</a>
+          <img src="https://m.media-amazon.com/images/I/61kH+9WaOQL._AC_SY606_.jpg" alt="Camisa Polo" />
+          <h3>Camisa Polo Clássica</h3>
+          <a href="#" class="btn">Ver Produto</a>
         </div>
         <div class="produto">
-          <img src="https://m.media-amazon.com/images/I/71qVC7RVMcL._AC_UL480_FMwebp_QL65_.jpg" alt="Relógio de Pulso" />
+          <img src="https://m.media-amazon.com/images/I/71CML0IwT0L._AC_SY606_.jpg" alt="Tênis Branco" />
+          <h3>Tênis Branco Casual</h3>
+          <a href="#" class="btn">Ver Produto</a>
+        </div>
+        <div class="produto">
+          <img src="https://m.media-amazon.com/images/I/71daGzRjSSL._AC_SY606_.jpg" alt="Relógio Moderno" />
           <h3>Relógio Masculino</h3>
-          <a href="https://www.amazon.com.br/dp/B09ABC" class="btn" target="_blank">Ver produto</a>
-        </div>
-        <div class="produto">
-          <img src="https://m.media-amazon.com/images/I/61dQ7pIC8JL._AC_UL480_FMwebp_QL65_.jpg" alt="Tênis Esportivo" />
-          <h3>Tênis Casual</h3>
-          <a href="https://www.amazon.com.br/dp/B07XYZ" class="btn" target="_blank">Ver produto</a>
+          <a href="#" class="btn">Ver Produto</a>
         </div>
       </div>
     </div>
 
-    <!-- Seção Artigos -->
     <div class="section" id="artigos">
-      <h1>Artigos de Moda</h1>
+      <h1>Artigos sobre Moda</h1>
       <div class="artigos-grid">
-        <div>
-          <h3>Como montar um look elegante com pouco dinheiro</h3>
-          <p>Dicas práticas para você se vestir bem gastando pouco.</p>
+        <div class="artigo">
+          <h3>Como Combinar Roupas Masculinas</h3>
+          <p>Dicas simples para montar looks estilosos no dia a dia.</p>
         </div>
-        <div>
-          <h3>Tendências masculinas de 2025</h3>
-          <p>Descubra o que vai bombar nas ruas e redes sociais neste ano.</p>
+        <div class="artigo">
+          <h3>O Que Vestir em Ocasiões Formais</h3>
+          <p>Veja como acertar no visual para festas, casamentos e eventos importantes.</p>
+        </div>
+        <div class="artigo">
+          <h3>Tendências 2025</h3>
+          <p>Descubra as principais peças e cores da próxima estação.</p>
         </div>
       </div>
     </div>
 
-    <!-- Seção Contato -->
     <div class="section" id="contato">
       <h1>Fale Conosco</h1>
       <form action="https://formsubmit.co/brendhoqueiroga@gmail.com" method="POST">
         <input type="text" name="name" placeholder="Seu nome" required />
-        <input type="email" name="email" placeholder="Seu e-mail" required />
-        <textarea name="message" rows="5" placeholder="Sua mensagem" required></textarea>
-        <input type="hidden" name="_captcha" value="false">
+        <input type="email" name="email" placeholder="Seu email" required />
+        <textarea name="message" placeholder="Sua mensagem" rows="5" required></textarea>
         <button type="submit">Enviar</button>
       </form>
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.20/dist/fullpage.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
