@@ -7,11 +7,11 @@ function toggleMenu() {
   menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
 }
 
-// Inicializa partículas no fundo
+// Inicializa partículas com formas em linhas giratórias
 particlesJS("particles-js", {
   particles: {
     number: {
-      value: 80,
+      value: 60,
       density: {
         enable: true,
         value_area: 800
@@ -21,17 +21,29 @@ particlesJS("particles-js", {
       value: "#1f4fff"
     },
     shape: {
-      type: "circle"
+      type: "edge",
+      stroke: {
+        width: 0,
+        color: "#000000"
+      },
+      polygon: {
+        nb_sides: 6
+      },
     },
     opacity: {
-      value: 0.5
+      value: 0.3,
+      random: true
     },
     size: {
-      value: 3
+      value: 2,
+      random: true
     },
     move: {
       enable: true,
-      speed: 2
+      speed: 2,
+      direction: "none",
+      random: true,
+      out_mode: "out"
     }
   },
   interactivity: {
@@ -39,14 +51,22 @@ particlesJS("particles-js", {
     events: {
       onhover: {
         enable: true,
-        mode: "repulse"
+        mode: "grab"
+      }
+    },
+    modes: {
+      grab: {
+        distance: 140,
+        line_linked: {
+          opacity: 0.5
+        }
       }
     }
   },
   retina_detect: true
 });
 
-// Adiciona efeito de parallax suave ao rolar
+// Efeito de parallax suave ao rolar
 window.addEventListener('scroll', () => {
   const parallaxEls = document.querySelectorAll('.parallax');
   parallaxEls.forEach(el => {
