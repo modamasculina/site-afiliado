@@ -1,47 +1,62 @@
-// Menu Hambúrguer toggle
-document.getElementById("hamburger").addEventListener("click", function () {
-  document.getElementById("menu").classList.toggle("hidden");
+// Toggle do menu hambúrguer
+document.addEventListener('DOMContentLoaded', function () {
+  const hamburger = document.querySelector('.hamburger');
+  const nav = document.querySelector('nav');
+
+  hamburger.addEventListener('click', function () {
+    nav.classList.toggle('hidden');
+  });
 });
 
-// FullPage init
+// FullPage.js - Scroll entre seções
 new fullpage('#fullpage', {
   autoScrolling: true,
   navigation: true,
-  navigationTooltips: ['Início', 'Produtos', 'Artigos', 'Contato'],
+  anchors: ['produtos', 'artigos', 'contato'],
+  navigationTooltips: ['Produtos', 'Artigos', 'Contato'],
   showActiveTooltip: true,
-  anchors: ['inicio', 'produtos', 'artigos', 'contato'],
-  scrollingSpeed: 800
+  scrollOverflow: true
 });
 
-// Partículas com brilho pastel
-tsParticles.load("tsparticles", {
-  background: {
-    color: { value: "transparent" }
-  },
-  particles: {
-    number: { value: 50 },
-    color: { value: "#a0c4ff" },
-    shape: { type: "circle" },
-    opacity: {
-      value: 0.5,
-      random: true
+// Busca por produto
+function filtrarProdutos() {
+  const input = document.getElementById('searchInput').value.toLowerCase();
+  const produtos = document.querySelectorAll('.produto');
+
+  produtos.forEach(produto => {
+    const texto = produto.textContent.toLowerCase();
+    produto.style.display = texto.includes(input) ? 'block' : 'none';
+  });
+}
+
+// Partículas no fundo
+particlesJS("particles-js", {
+  "particles": {
+    "number": {
+      "value": 60
     },
-    size: {
-      value: 3,
-      random: true
+    "color": {
+      "value": "#1e3a8a"
     },
-    move: {
-      enable: true,
-      speed: 0.6,
-      direction: "none",
-      outModes: "bounce"
+    "shape": {
+      "type": "circle"
+    },
+    "opacity": {
+      "value": 0.3
+    },
+    "size": {
+      "value": 3
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 150,
+      "color": "#1e3a8a",
+      "opacity": 0.2,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 1.6
     }
-  },
-  interactivity: {
-    events: {
-      onHover: { enable: true, mode: "repulse" },
-      resize: true
-    }
-  },
-  fullScreen: { enable: false }
+  }
 });
