@@ -2,92 +2,230 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Dicas & Produtos - Moda Masculina</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Moda Masculina - Seu Estilo</title>
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+    }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f5f7fa;
+      background: #fafafa;
       color: #333;
-      text-align: center;
-      padding: 2em;
+      line-height: 1.6;
     }
-    h1 {
-      color: #1a1a1a;
-      margin-bottom: 0.5em;
-      font-weight: 700;
+    header {
+      background: #222;
+      color: white;
+      padding: 1em 2em;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     }
-    .produto {
+    header .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      letter-spacing: 2px;
+      cursor: default;
+    }
+    nav a {
+      color: white;
+      margin-left: 1.5em;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #00aaff;
+    }
+    main {
+      margin-top: 80px;
+      padding: 1em 2em 3em;
+    }
+    .banner {
+      position: relative;
+      height: 300px;
+      background: url('https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+      border-radius: 10px;
+      margin-bottom: 2em;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .banner-text {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: white;
+      background: rgba(0,0,0,0.5);
+      padding: 1em 1.5em;
+      border-radius: 8px;
+      font-size: 1.5em;
+      font-weight: bold;
+      max-width: 70%;
+    }
+    section {
+      margin-bottom: 3em;
+    }
+    section h2 {
+      margin-bottom: 1em;
+      font-size: 2em;
+      color: #222;
+      border-bottom: 3px solid #00aaff;
+      display: inline-block;
+      padding-bottom: 0.2em;
+    }
+    .produtos, .artigos {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5em;
+    }
+    .card {
       background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      width: 320px;
-      margin: 1em auto;
-      padding: 1.5em 1em;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
       transition: transform 0.3s ease;
     }
-    .produto:hover {
+    .card:hover {
       transform: translateY(-5px);
     }
-    .produto img {
-      max-width: 100%;
-      border-radius: 8px;
-      margin-bottom: 1em;
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
     }
-    h2 {
-      font-size: 1.5em;
-      margin-bottom: 0.3em;
-      color: #222;
+    .card-content {
+      padding: 1em;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    p {
-      font-size: 1em;
-      line-height: 1.4em;
+    .card-content h3 {
+      margin-bottom: 0.5em;
+      color: #00aaff;
+    }
+    .card-content p {
+      flex-grow: 1;
       margin-bottom: 1em;
       color: #555;
     }
-    a {
-      display: inline-block;
-      background: #004d99;
+    .card-content a {
+      align-self: flex-start;
+      background: #00aaff;
       color: white;
-      padding: 12px 25px;
+      padding: 0.5em 1em;
       border-radius: 6px;
       text-decoration: none;
       font-weight: 600;
       transition: background-color 0.3s ease;
     }
-    a:hover {
-      background: #003366;
+    .card-content a:hover {
+      background: #0088cc;
     }
-    /* Responsivo básico */
-    @media (max-width: 400px) {
-      .produto {
-        width: 90%;
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 1em 2em;
+      font-size: 0.9em;
+      margin-top: 3em;
+      border-top: 4px solid #00aaff;
+    }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        margin-top: 0.5em;
       }
     }
   </style>
 </head>
 <body>
-  <h1>Dicas & Produtos para Moda Masculina</h1>
+  <header>
+    <div class="logo">Seu Estilo</div>
+    <nav>
+      <a href="#produtos">Produtos</a>
+      <a href="#artigos">Artigos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
 
-  <div class="produto">
-    <img src="https://via.placeholder.com/300x200?text=Camisa+Social" alt="Camisa Social Masculina" />
-    <h2>Camisa Social Slim Fit</h2>
-    <p>Perfeita para o trabalho ou eventos sociais, com tecido confortável e corte moderno.</p>
-    <a href="https://seulinkdeafiliado.com/camisa" target="_blank" rel="noopener noreferrer">Comprar agora</a>
-  </div>
+  <main>
+    <div class="banner">
+      <div class="banner-text">Moda Masculina com Estilo e Elegância</div>
+    </div>
 
-  <div class="produto">
-    <img src="https://via.placeholder.com/300x200?text=Rel%C3%B3gio+Masculino" alt="Relógio Masculino" />
-    <h2>Relógio Clássico Elegante</h2>
-    <p>Design sofisticado que combina com qualquer look. Ideal para homens que prezam estilo e pontualidade.</p>
-    <a href="https://seulinkdeafiliado.com/relogio" target="_blank" rel="noopener noreferrer">Comprar agora</a>
-  </div>
+    <section id="produtos">
+      <h2>Produtos em Destaque</h2>
+      <div class="produtos">
+        <div class="card">
+          <img src="https://via.placeholder.com/400x300?text=Camisa+Social" alt="Camisa Social" />
+          <div class="card-content">
+            <h3>Camisa Social Slim Fit</h3>
+            <p>Conforto e elegância para o seu dia a dia. Corte moderno e tecido de qualidade.</p>
+            <a href="https://seulinkdeafiliado.com/camisa" target="_blank" rel="noopener noreferrer">Comprar</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/400x300?text=Rel%C3%B3gio+Elegante" alt="Relógio Elegante" />
+          <div class="card-content">
+            <h3>Relógio Clássico</h3>
+            <p>Design sofisticado que combina com qualquer ocasião.</p>
+            <a href="https://seulinkdeafiliado.com/relogio" target="_blank" rel="noopener noreferrer">Comprar</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/400x300?text=Perfume+Amadeirado" alt="Perfume Amadeirado" />
+          <div class="card-content">
+            <h3>Perfume Amadeirado</h3>
+            <p>Fragrância marcante para impressionar em todas as ocasiões.</p>
+            <a href="https://seulinkdeafiliado.com/perfume" target="_blank" rel="noopener noreferrer">Comprar</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <div class="produto">
-    <img src="https://via.placeholder.com/300x200?text=Perfume+Masculino" alt="Perfume Masculino" />
-    <h2>Perfume Amadeirado</h2>
-    <p>Fragrância marcante para todas as ocasiões. Dê um upgrade no seu visual com um aroma inesquecível.</p>
-    <a href="https://seulinkdeafiliado.com/perfume" target="_blank" rel="noopener noreferrer">Comprar agora</a>
-  </div>
+    <section id="artigos">
+      <h2>Artigos Recentes</h2>
+      <div class="artigos">
+        <div class="card">
+          <img src="https://via.placeholder.com/400x300?text=Dicas+de+Estilo" alt="Dicas de Estilo" />
+          <div class="card-content">
+            <h3>5 Dicas para Melhorar seu Estilo</h3>
+            <p>Descubra truques simples para valorizar sua aparência e se sentir mais confiante.</p>
+            <a href="#">Leia Mais</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/400x300?text=Cuidados+com+a+Barba" alt="Cuidados com a Barba" />
+          <div class="card-content">
+            <h3>Como Cuidar da Barba em Casa</h3>
+            <p>Aprenda a manter sua barba alinhada e saudável com passos fáceis.</p>
+            <a href="#">Leia Mais</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section id="contato">
+      <h2>Contato</h2>
+      <p>Quer saber mais? Entre em contato pelo email: <a href="mailto:contato@seuestilo.com">contato@seuestilo.com</a></p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Seu Estilo. Todos os direitos reservados.
+  </footer>
 </body>
 </html>
