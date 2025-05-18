@@ -3,15 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Moda Masculina</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Century+Gothic&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --azul-claro: #c3d9f7;
-      --azul-medio: #7aaaff;
-      --azul-escuro: #0d1b2a;
-      --azul-pastel: #edf5ff;
-    }
-
+    /* Reset básico */
     * {
       margin: 0;
       padding: 0;
@@ -19,101 +15,112 @@
     }
 
     html, body {
+      height: 100%;
       font-family: 'Inter', sans-serif;
-      color: #0d1b2a;
+      background: linear-gradient(to bottom, #e3f0ff, #cfdfff, #e3f0ff);
+      color: #222;
       scroll-behavior: smooth;
-      background: linear-gradient(to bottom, #eaf3ff 0%, #edf5ff 40%, #edf5ff 60%, #eaf3ff 100%);
-      background-attachment: fixed;
+      position: relative;
+      overflow-x: hidden;
     }
 
-    /* Logo flutuante */
-    .logo-flutuante {
+    #particles-js {
       position: fixed;
-      top: 1rem;
-      left: 1.5rem;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      z-index: 100;
+    }
+
+    .logo {
       font-family: 'Century Gothic', sans-serif;
       font-weight: bold;
-      font-size: 1.8rem;
-      color: var(--azul-escuro);
-      background: rgba(255, 255, 255, 0.5);
-      padding: 0.4rem 0.8rem;
-      border-radius: 8px;
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-      letter-spacing: 1px;
+      font-size: 1.5rem;
+      color: #1f4fff;
     }
 
-    /* Botão do menu (hamburger) */
-    .menu-btn {
-      position: fixed;
-      top: 1.2rem;
-      right: 1.5rem;
+    .menu-toggle {
+      cursor: pointer;
       width: 30px;
-      height: 24px;
+      height: 22px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      cursor: pointer;
-      z-index: 1001;
     }
 
-    .menu-btn span {
+    .menu-toggle span {
       height: 4px;
-      width: 100%;
-      background: var(--azul-escuro);
+      background: #1f4fff;
       border-radius: 2px;
-      transition: 0.3s;
     }
 
-    /* Menu lateral */
-    .menu {
+    nav {
       position: fixed;
       top: 0;
-      right: -250px;
-      width: 250px;
+      right: -100%;
+      width: 60%;
       height: 100%;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(20px);
-      box-shadow: -5px 0 10px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
+      background: #fff;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+      transition: right 0.3s ease;
+      z-index: 99;
       padding-top: 5rem;
-      padding-left: 2rem;
-      transition: right 0.4s ease;
-      z-index: 1000;
     }
 
-    .menu a {
-      text-decoration: none;
-      color: var(--azul-escuro);
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-      transition: 0.3s;
-    }
-
-    .menu a:hover {
-      color: var(--azul-medio);
-    }
-
-    .menu.open {
+    nav.active {
       right: 0;
     }
 
-    /* Conteúdo principal */
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding-left: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1f4fff;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
     section {
       padding: 6rem 2rem 4rem;
       max-width: 1000px;
       margin: auto;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     section h2 {
       font-family: 'Century Gothic', sans-serif;
-      font-size: 1.8rem;
+      font-size: 2rem;
       margin-bottom: 1rem;
-      border-left: 4px solid var(--azul-medio);
+      border-left: 5px solid #1f4fff;
       padding-left: 0.5rem;
-      font-weight: bold;
     }
 
     .produtos-grid {
@@ -124,17 +131,16 @@
     }
 
     .produto {
-      background: rgba(255, 255, 255, 0.5);
+      background: #fff;
       padding: 1rem;
-      border-radius: 8px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
       text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
     }
 
     .produto:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      transform: scale(1.03);
     }
 
     .produto img {
@@ -144,7 +150,6 @@
 
     .produto h3 {
       margin: 0.5rem 0;
-      font-family: 'Century Gothic', sans-serif;
       font-weight: bold;
     }
 
@@ -152,43 +157,40 @@
       display: inline-block;
       margin-top: 0.5rem;
       padding: 0.5rem 1rem;
-      background: var(--azul-medio);
-      color: white;
+      background: #1f4fff;
+      color: #fff;
       text-decoration: none;
       border-radius: 4px;
       font-weight: bold;
     }
 
-    .produto a:hover {
-      background: var(--azul-escuro);
-    }
-
-    @media (max-width: 600px) {
-      .logo-flutuante {
-        font-size: 1.2rem;
-      }
-
-      .menu {
-        width: 200px;
+    @media (min-width: 768px) {
+      nav {
+        width: 300px;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="logo-flutuante">Moda Masculina</div>
+  <div id="particles-js"></div>
 
-  <div class="menu-btn" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+  <header>
+    <div class="logo">Moda Masculina</div>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
 
-  <div class="menu" id="menu">
-    <a href="#produtos">Produtos</a>
-    <a href="#artigos">Artigos</a>
-    <a href="#contato">Contato</a>
-  </div>
+  <nav id="mobile-menu">
+    <ul>
+      <li><a href="#produtos" onclick="toggleMenu()">Produtos</a></li>
+      <li><a href="#artigos" onclick="toggleMenu()">Artigos</a></li>
+      <li><a href="#contato" onclick="toggleMenu()">Contato</a></li>
+    </ul>
+  </nav>
 
   <section id="produtos">
     <h2>Produtos</h2>
@@ -221,10 +223,35 @@
     <p>Fale conosco pelo e-mail: contato@modamasculina.com</p>
   </section>
 
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 60 },
+        "color": { "value": "#1f4fff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.2 },
+        "size": { "value": 3 },
+        "line_linked": { "enable": true, "distance": 120, "color": "#1f4fff", "opacity": 0.1, "width": 1 },
+        "move": { "enable": true, "speed": 1 }
+      }
+    });
+
+    // Animação de entrada ao rolar
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => observer.observe(section));
+
     function toggleMenu() {
-      const menu = document.getElementById('menu');
-      menu.classList.toggle('open');
+      document.getElementById('mobile-menu').classList.toggle('active');
     }
   </script>
 
