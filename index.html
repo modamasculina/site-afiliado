@@ -5,76 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Moda Masculina</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullpage.js/dist/fullpage.min.css" />
 </head>
 <body>
   <header>
     <div class="site-title">Moda Masculina</div>
-    <div class="hamburger" id="hamburger">
+    <div class="hamburger" onclick="toggleMenu()">
       <span></span>
       <span></span>
       <span></span>
     </div>
-    <nav class="hidden" id="menu">
+    <nav id="navMenu" class="hidden">
       <a href="#produtos">Produtos</a>
       <a href="#artigos">Artigos</a>
       <a href="#contato">Fale Conosco</a>
     </nav>
   </header>
 
-  <div id="fullpage">
-    <section class="section" id="produtos" data-anchor="produtos">
-      <h1>Produtos em Destaque</h1>
-      <input type="text" class="search-box" placeholder="Pesquisar produtos..." />
-      <div class="produtos-grid">
-        <div class="produto">
-          <img src="https://via.placeholder.com/200x200?text=Relógio+Luxo" alt="Relógio de Luxo">
-          <h3>Relógio Masculino</h3>
-          <a href="#" class="btn">Ver Produto</a>
-        </div>
-        <div class="produto">
-          <img src="https://via.placeholder.com/200x200?text=Camisa+Estilosa" alt="Camisa Estilosa">
-          <h3>Camisa Estilosa</h3>
-          <a href="#" class="btn">Ver Produto</a>
-        </div>
-        <div class="produto">
-          <img src="https://via.placeholder.com/200x200?text=Jaqueta+Futurista" alt="Jaqueta Futurista">
-          <h3>Jaqueta Futurista</h3>
-          <a href="#" class="btn">Ver Produto</a>
-        </div>
+  <section id="produtos" class="section">
+    <h2>Produtos Recomendados</h2>
+    <input type="text" id="searchInput" class="search-box" placeholder="Buscar produtos...">
+    <div class="produtos-grid" id="produtosGrid"></div>
+  </section>
+
+  <section id="artigos" class="section">
+    <h2>Artigos Recentes</h2>
+    <div class="artigos-grid">
+      <div>
+        <h3>Como se vestir bem com pouco dinheiro</h3>
+        <p>Dicas para montar um guarda-roupa estiloso economizando.</p>
       </div>
-    </section>
-
-    <section class="section" id="artigos" data-anchor="artigos">
-      <h1>Artigos sobre Moda</h1>
-      <div class="artigos-grid">
-        <div>
-          <h3>Como se vestir bem com pouco dinheiro</h3>
-          <p>Dicas práticas para montar um guarda-roupa estiloso sem gastar muito.</p>
-        </div>
-        <div>
-          <h3>Top 5 estilos urbanos para 2025</h3>
-          <p>Descubra as tendências mais quentes da moda masculina urbana.</p>
-        </div>
-        <div>
-          <h3>Roupas que valorizam o seu corpo</h3>
-          <p>Aprenda a escolher roupas que combinam com seu tipo físico.</p>
-        </div>
+      <div>
+        <h3>Estilo casual para o dia a dia</h3>
+        <p>Como combinar camisetas, jeans e tênis com elegância.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section" id="contato" data-anchor="contato">
-      <h1>Fale Conosco</h1>
-      <form>
-        <input type="text" placeholder="Seu nome" required />
-        <input type="email" placeholder="Seu e-mail" required />
-        <textarea rows="5" placeholder="Sua mensagem" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-    </section>
-  </div>
+  <section id="contato" class="section">
+    <h2>Fale Conosco</h2>
+    <form>
+      <input type="text" placeholder="Seu nome" required />
+      <input type="email" placeholder="Seu e-mail" required />
+      <textarea placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/fullpage.js/dist/fullpage.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
