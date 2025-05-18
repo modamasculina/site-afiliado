@@ -3,7 +3,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #dbeafe, #bfdbfe);
   color: #111;
-  overflow: hidden;
+  scroll-behavior: smooth;
 }
 
 header {
@@ -32,7 +32,7 @@ header {
   cursor: pointer;
   gap: 5px;
   position: absolute;
-  right: 60px; /* Agora mais à esquerda */
+  right: 40px; /* Ajustado mais à esquerda */
   top: 18px;
 }
 
@@ -142,10 +142,4 @@ form button {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-}
-
-/* Scroll navigation bullets */
-.fp-nav ul li a span,
-.fp-slidesNav ul li a span {
-  background: #111 !important;
 }
