@@ -16,51 +16,74 @@
       color: #333;
     }
 
-    header {
-      background-color: #111;
-      color: #fff;
+    /* HERO / TOPO COM ANIMAÇÃO */
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: #000;
+      color: white;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
     }
 
-    .logo img {
-      height: 50px;
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
     }
 
-    nav ul {
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+
+    .titulo {
+      font-size: 2.5rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #00ffff;
+      margin-bottom: 1rem;
+    }
+
+    .hero nav ul {
       list-style: none;
       display: flex;
       gap: 2rem;
+      justify-content: center;
+      padding: 0;
+      margin-top: 1rem;
     }
 
-    nav a {
+    .hero nav a {
       color: #fff;
       text-decoration: none;
-      font-size: 1rem;
-      transition: all 0.3s ease;
+      font-size: 1.1rem;
       position: relative;
     }
 
-    nav a::after {
+    .hero nav a::after {
       content: '';
       position: absolute;
+      bottom: -5px;
       left: 0;
-      bottom: -4px;
       width: 100%;
       height: 2px;
-      background-color: #1f4fff;
+      background: #00ffff;
       transform: scaleX(0);
       transform-origin: right;
       transition: transform 0.3s ease;
     }
 
-    nav a:hover::after {
+    .hero nav a:hover::after {
       transform: scaleX(1);
       transform-origin: left;
     }
@@ -124,18 +147,20 @@
 </head>
 <body>
 
-  <header>
-    <div class="logo">
-      <img src="Logo%20Moda%20Masculina.png" alt="Logo Moda Masculina">
+  <section class="hero">
+    <div id="particles-js"></div>
+    <div class="hero-content">
+      <img src="logo_moda_masculina_transparente.png" alt="Logo Moda Masculina" class="logo" />
+      <h1 class="titulo">Moda Masculina</h1>
+      <nav>
+        <ul>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#artigos">Artigos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
     </div>
-    <nav>
-      <ul>
-        <li><a href="#produtos">Produtos</a></li>
-        <li><a href="#artigos">Artigos</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
+  </section>
 
   <section id="produtos">
     <h2>Produtos</h2>
@@ -172,5 +197,57 @@
     &copy; 2025 Moda Masculina. Todos os direitos reservados.
   </footer>
 
+  <!-- Scripts das partículas -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": { "enable": true, "value_area": 800 }
+        },
+        "color": { "value": "#00ffff" },
+        "shape": {
+          "type": "circle",
+          "stroke": { "width": 0, "color": "#000000" }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": true
+        },
+        "size": {
+          "value": 3,
+          "random": true
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#00ffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 3,
+          "direction": "none",
+          "out_mode": "out"
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": true, "mode": "push" }
+        },
+        "modes": {
+          "repulse": { "distance": 100 },
+          "push": { "particles_nb": 4 }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+
 </body>
 </html>
+
