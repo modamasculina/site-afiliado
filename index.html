@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Moda Masculina</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -14,39 +14,51 @@
       <span></span>
       <span></span>
     </div>
-    <nav id="navMenu" class="hidden">
+    <nav id="menu" class="hidden">
       <a href="#produtos">Produtos</a>
       <a href="#artigos">Artigos</a>
-      <a href="#contato">Fale Conosco</a>
+      <a href="#contato">Contato</a>
     </nav>
   </header>
 
   <section id="produtos" class="section">
-    <h2>Produtos Recomendados</h2>
-    <input type="text" id="searchInput" class="search-box" placeholder="Buscar produtos...">
-    <div class="produtos-grid" id="produtosGrid"></div>
+    <h2>Produtos em Destaque</h2>
+    <input class="search-box" type="text" placeholder="Buscar produtos..." />
+    <div class="produtos-grid">
+      <div class="produto">
+        <img src="https://via.placeholder.com/200" alt="Produto 1">
+        <h3>Camisa Slim</h3>
+        <a class="btn" href="#">Ver Mais</a>
+      </div>
+      <div class="produto">
+        <img src="https://via.placeholder.com/200" alt="Produto 2">
+        <h3>Calça Jeans</h3>
+        <a class="btn" href="#">Ver Mais</a>
+      </div>
+      <!-- Mais produtos aqui -->
+    </div>
   </section>
 
   <section id="artigos" class="section">
     <h2>Artigos Recentes</h2>
     <div class="artigos-grid">
-      <div>
-        <h3>Como se vestir bem com pouco dinheiro</h3>
-        <p>Dicas para montar um guarda-roupa estiloso economizando.</p>
+      <div class="artigo">
+        <h3>Como se vestir bem gastando pouco</h3>
+        <p>Dicas práticas para montar um guarda-roupa estiloso sem estourar o orçamento.</p>
       </div>
-      <div>
-        <h3>Estilo casual para o dia a dia</h3>
-        <p>Como combinar camisetas, jeans e tênis com elegância.</p>
+      <div class="artigo">
+        <h3>Tendências de Moda Masculina 2025</h3>
+        <p>Confira o que estará em alta neste ano e como aplicar no dia a dia.</p>
       </div>
     </div>
   </section>
 
   <section id="contato" class="section">
     <h2>Fale Conosco</h2>
-    <form>
-      <input type="text" placeholder="Seu nome" required />
-      <input type="email" placeholder="Seu e-mail" required />
-      <textarea placeholder="Sua mensagem" required></textarea>
+    <form action="https://formspree.io/f/{SEU_ID}" method="POST">
+      <input type="text" name="nome" placeholder="Seu nome" required />
+      <input type="email" name="email" placeholder="Seu email" required />
+      <textarea name="mensagem" rows="4" placeholder="Sua mensagem" required></textarea>
       <button type="submit">Enviar</button>
     </form>
   </section>
