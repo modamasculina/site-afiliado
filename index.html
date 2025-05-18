@@ -8,30 +8,51 @@
   <!-- FullPage.js CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css" />
 
+  <!-- Fonte moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+
   <!-- Seu CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+  <!-- Partículas -->
+  <div id="particles-js"></div>
+
+  <!-- FullPage Seções -->
   <div id="fullpage">
     <div class="section" id="home">
+      <div class="logo">
+        <!-- Logo simples como um quadrado diagonal com um traço -->
+        <svg width="100" height="100" viewBox="0 0 100 100">
+          <rect x="20" y="20" width="60" height="60" transform="rotate(45 50 50)" stroke="#fff" stroke-width="4" fill="none"/>
+          <line x1="30" y1="70" x2="70" y2="30" stroke="#fff" stroke-width="4"/>
+        </svg>
+      </div>
       <h1>Moda Masculina</h1>
-      <p>Bem-vindo ao seu novo estilo</p>
+      <p>Explore o melhor da moda para homens jovens</p>
     </div>
+
     <div class="section" id="produtos">
       <h2>Produtos em Alta</h2>
+      <p>Confira os produtos mais recomendados do momento</p>
+      <!-- Você pode adicionar cards de afiliado aqui -->
     </div>
+
     <div class="section" id="artigos">
       <h2>Artigos e Dicas</h2>
+      <p>Leia artigos sobre estilo, tendências e cuidados pessoais</p>
     </div>
+
     <div class="section" id="contato">
-      <h2>Contato</h2>
+      <h2>Fale Conosco</h2>
+      <p>Entre em contato para dúvidas ou parcerias</p>
+      <!-- Formulário ou redes sociais -->
     </div>
   </div>
 
   <!-- Particles.js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <div id="particles-js"></div>
 
   <!-- FullPage.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
