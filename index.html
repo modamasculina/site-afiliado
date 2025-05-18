@@ -3,14 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>Moda Masculina</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="style.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/lucide-static@0.289.0/font/css/lucide.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
   <div id="particles-js"></div>
+
   <header>
     <div class="logo-text">Moda Masculina</div>
     <svg onclick="toggleMenu()" class="menu-toggle" viewBox="0 0 100 80" width="30" height="30">
@@ -29,45 +33,48 @@
     <input type="text" id="busca" placeholder="Pesquisar produtos...">
   </div>
 
-  <section id="produtos" data-aos="fade-up">
-    <div class="produto" data-categoria="camisas">
-      <img src="https://m.media-amazon.com/images/I/61UNb3Rp4nL._AC_UX679_.jpg" alt="Camisa Slim Fit Masculina">
-      <h3>Camisa Slim Fit</h3>
-      <a href="https://www.amazon.com.br/dp/B0BXXDYZ88?tag=seulinkafiliado">Ver Produto</a>
-    </div>
-    <div class="produto" data-categoria="calçados">
-      <img src="https://m.media-amazon.com/images/I/61P5Ynvk0rL._AC_UY500_.jpg" alt="Tênis Masculino Casual">
-      <h3>Tênis Casual</h3>
-      <a href="https://www.amazon.com.br/dp/B0BYJXD1ZC?tag=seulinkafiliado">Ver Produto</a>
-    </div>
-    <div class="produto" data-categoria="acessorios">
-      <img src="https://m.media-amazon.com/images/I/61pZAh8RfdL._AC_UL640_QL65_.jpg" alt="Relógio Masculino Estiloso">
-      <h3>Relógio Estiloso</h3>
-      <a href="https://www.amazon.com.br/dp/B08N5LR3M3?tag=seulinkafiliado">Ver Produto</a>
-    </div>
-  </section>
+  <div id="fullpage">
+    <section class="section" id="produtos" data-aos="fade-up">
+      <div class="produto" data-categoria="camisas">
+        <img src="https://m.media-amazon.com/images/I/61UNb3Rp4nL._AC_UX679_.jpg" alt="Camisa Slim Fit Masculina">
+        <h3>Camisa Slim Fit</h3>
+        <a href="https://www.amazon.com.br/dp/B0BXXDYZ88?tag=seulinkafiliado">Ver Produto</a>
+      </div>
+      <div class="produto" data-categoria="calçados">
+        <img src="https://m.media-amazon.com/images/I/61P5Ynvk0rL._AC_UY500_.jpg" alt="Tênis Masculino Casual">
+        <h3>Tênis Casual</h3>
+        <a href="https://www.amazon.com.br/dp/B0BYJXD1ZC?tag=seulinkafiliado">Ver Produto</a>
+      </div>
+      <div class="produto" data-categoria="acessorios">
+        <img src="https://m.media-amazon.com/images/I/61pZAh8RfdL._AC_UL640_QL65_.jpg" alt="Relógio Masculino Estiloso">
+        <h3>Relógio Estiloso</h3>
+        <a href="https://www.amazon.com.br/dp/B08N5LR3M3?tag=seulinkafiliado">Ver Produto</a>
+      </div>
+    </section>
 
-  <section id="artigos" data-aos="fade-up">
-    <div class="card">
-      <h3>Como escolher sua camisa ideal</h3>
-      <p>Dicas práticas para encontrar o caimento perfeito.</p>
-    </div>
-    <div class="card">
-      <h3>Tendências em calçados 2025</h3>
-      <p>As novidades em tênis e sapatos masculinos.</p>
-    </div>
-  </section>
+    <section class="section" id="artigos" data-aos="fade-up">
+      <div class="card">
+        <h3>Como escolher sua camisa ideal</h3>
+        <p>Dicas práticas para encontrar o caimento perfeito.</p>
+      </div>
+      <div class="card">
+        <h3>Tendências em calçados 2025</h3>
+        <p>As novidades em tênis e sapatos masculinos.</p>
+      </div>
+    </section>
 
-  <section id="contato" data-aos="fade-up">
-    <div class="formulario">
-      <h3>Fale conosco</h3>
-      <input type="text" placeholder="Seu nome">
-      <input type="email" placeholder="Seu e-mail">
-      <textarea placeholder="Sua mensagem"></textarea>
-      <button onclick="alert('Mensagem enviada!')">Enviar</button>
-    </div>
-  </section>
+    <section class="section" id="contato" data-aos="fade-up">
+      <div class="formulario">
+        <h3>Fale conosco</h3>
+        <input type="text" placeholder="Seu nome">
+        <input type="email" placeholder="Seu e-mail">
+        <textarea placeholder="Sua mensagem"></textarea>
+        <button onclick="alert('Mensagem enviada!')">Enviar</button>
+      </div>
+    </section>
+  </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
