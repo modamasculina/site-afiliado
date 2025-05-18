@@ -17,15 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
     menu.classList.toggle('hidden');
   });
 
-// ROLA PARA A SEÇÃO AO CLICAR NO LINK
+// ROLA PARA A SEÇÃO AO CLICAR NO LINK (usando href normalmente)
 document.querySelectorAll('#menu a').forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    const target = link.getAttribute('href').replace('#', '');
-    fullpage_api.moveTo(target);
-    menu.classList.add('hidden'); // Fecha o menu após o clique
+  link.addEventListener('click', () => {
+    menu.classList.add('hidden'); // Fecha o menu ao clicar
   });
 });
+
 
   // PARTICULAS TSPARTICLES
   tsParticles.load('tsparticles', {
