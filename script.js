@@ -17,12 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
     menu.classList.toggle('hidden');
   });
 
-  // FECHAR MENU AO CLICAR EM LINK
-  document.querySelectorAll('#menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      menu.classList.add('hidden');
-    });
+// ROLA PARA A SEÇÃO AO CLICAR NO LINK
+document.querySelectorAll('#menu a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = link.getAttribute('href').replace('#', '');
+    fullpage_api.moveTo(target);
+    menu.classList.add('hidden'); // Fecha o menu após o clique
   });
+});
 
   // PARTICULAS TSPARTICLES
   tsParticles.load('tsparticles', {
