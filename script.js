@@ -4,18 +4,17 @@ new fullpage('#fullpage', {
   navigation: true,
   navigationPosition: 'right',
   anchors: ['home', 'produtos', 'artigos', 'contato'],
-  menu: '#menu',
   scrollHorizontally: true
 });
 
-// Particles.js
+// Partículas de fundo
 particlesJS("particles-js", {
   particles: {
-    number: { value: 60 },
+    number: { value: 50 },
     color: { value: "#ffffff" },
     shape: { type: "circle" },
     opacity: {
-      value: 0.3,
+      value: 0.25,
       random: true
     },
     size: {
