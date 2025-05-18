@@ -37,7 +37,7 @@
       padding: 1rem 2rem;
       z-index: 100;
       display: flex;
-      justify-content: flex-start;
+      justify-content: space-between;
       align-items: center;
       background: transparent;
     }
@@ -49,40 +49,56 @@
       text-shadow: 0 0 10px rgba(31, 79, 255, 0.3);
     }
 
-    .sidebar {
+    .menu-toggle {
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #1f4fff;
+      z-index: 101;
+    }
+
+    .menu {
       position: fixed;
-      top: 50%;
+      top: 4rem;
       right: 2rem;
-      transform: translateY(-50%);
-      display: flex;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      display: none;
       flex-direction: column;
-      gap: 1.2rem;
+      padding: 1rem;
+      gap: 1rem;
       z-index: 100;
     }
 
-    .sidebar a {
+    .menu.active {
+      display: flex;
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .menu a {
       font-family: 'Arial', sans-serif;
       text-decoration: none;
       color: #1f4fff;
       font-weight: bold;
-      font-size: 1rem;
-      transition: color 0.3s;
       position: relative;
+      padding-left: 1rem;
     }
 
-    .sidebar a::after {
-      content: '➜';
+    .menu a::before {
+      content: '';
       position: absolute;
-      right: -1.5rem;
-      top: 0;
-      opacity: 0;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      color: #1f4fff;
-    }
-
-    .sidebar a:hover::after {
-      opacity: 1;
-      transform: translateX(5px);
+      left: 0;
+      top: 50%;
+      width: 6px;
+      height: 6px;
+      background: #1f4fff;
+      border-radius: 50%;
+      transform: translateY(-50%);
     }
 
     section {
@@ -97,6 +113,16 @@
       border-left: 5px solid #1f4fff;
       padding-left: 0.5rem;
       font-weight: bold;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: titleReveal 1s forwards;
+    }
+
+    @keyframes titleReveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .produtos-grid {
@@ -139,6 +165,12 @@
       text-decoration: none;
       border-radius: 4px;
       font-weight: bold;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .produto a:hover {
+      background: #163ccc;
+      transform: scale(1.05);
     }
   </style>
 </head>
@@ -146,13 +178,13 @@
   <div id="particles-js"></div>
   <header>
     <div class="logo-text">Moda Masculina</div>
+    <div class="menu-toggle" onclick="toggleMenu()">≡</div>
+    <div class="menu" id="menu">
+      <a href="#produtos">Produtos</a>
+      <a href="#artigos">Artigos</a>
+      <a href="#contato">Contato</a>
+    </div>
   </header>
-
-  <div class="sidebar">
-    <a href="#produtos">Produtos</a>
-    <a href="#artigos">Artigos</a>
-    <a href="#contato">Contato</a>
-  </div>
 
   <section id="produtos" data-aos="fade-up">
     <h2>Produtos</h2>
@@ -175,12 +207,12 @@
     </div>
   </section>
 
-  <section id="artigos" data-aos="fade-up">
+  <section id="artigos" data-aos="fade-left">
     <h2>Artigos</h2>
     <p>Em breve artigos sobre estilo, grooming e tendências da moda masculina.</p>
   </section>
 
-  <section id="contato" data-aos="fade-up">
+  <section id="contato" data-aos="fade-right">
     <h2>Contato</h2>
     <p>Fale conosco pelo e-mail: contato@modamasculina.com</p>
   </section>
@@ -192,6 +224,10 @@
       duration: 1000,
       once: true
     });
+
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('active');
+    }
 
     tsParticles.load("particles-js", {
       background: {
