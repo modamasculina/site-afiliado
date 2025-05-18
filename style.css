@@ -1,72 +1,41 @@
-/* Fundo geral e tipografia */
-body {
+/* Reset básico */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-  color: #111;
-  scroll-behavior: smooth;
+  color: #111827;
   overflow-x: hidden;
 }
 
-/* Hero Section */
-.hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
-.hero h1 {
-  font-size: 3.5rem;
-  font-weight: bold;
-  color: #1e3a8a;
-  margin: 0;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  color: #1e40af;
-  margin-top: 10px;
-}
-
-/* Header fixo com logo e menu */
+/* Header */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 60px;
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
   z-index: 1000;
-  background-color: transparent;
+  background: transparent;
 }
 
-/* Logo SVG */
 .logo {
-  width: 40px;
-  height: 40px;
-  animation: float 3s ease-in-out infinite;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1e3a8a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* Animação flutuante */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-/* Ícone Hamburguer */
 .hamburger {
   width: 24px;
   height: 18px;
@@ -84,40 +53,40 @@ header {
   border-radius: 1px;
   transition: all 0.3s ease;
 }
-/* Menu de navegação */
+
+/* Menu */
 nav {
   position: absolute;
   top: 60px;
   right: 20px;
-  background-color: #ffffffee;
+  background-color: #f1f5f9;
   border-radius: 10px;
-  padding: 15px 25px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  z-index: 999;
+  padding: 15px 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  display: none;
+  flex-direction: column;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
-nav.hidden {
-  display: none;
+nav.show {
+  display: flex;
 }
 
 nav a {
-  position: relative;
-  display: inline-block;
   text-decoration: none;
   color: #1e3a8a;
-  font-weight: 500;
   margin: 10px 0;
-  padding-bottom: 4px;
+  font-size: 1rem;
+  position: relative;
   transition: color 0.3s ease;
 }
 
-/* Linha sequencial ao passar o mouse */
 nav a::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
-  bottom: 0;
-  width: 0%;
+  bottom: -2px;
+  width: 0;
   height: 2px;
   background-color: #1e3a8a;
   transition: width 0.3s ease;
@@ -127,105 +96,65 @@ nav a:hover::after {
   width: 100%;
 }
 
-/* Seções */
-.section {
-  text-align: center;
-  padding: 100px 20px;
-  min-height: 100vh;
+/* Hero Section */
+.hero {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
 }
 
-/* Produtos */
-.produtos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
+.hero h1 {
+  font-size: 3rem;
+  color: #1e3a8a;
+  margin-bottom: 10px;
 }
 
-.produto {
-  background-color: white;
-  border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.hero p {
+  font-size: 1.2rem;
+  color: #334155;
 }
 
-.produto img {
-  max-width: 100%;
-  border-radius: 8px;
+/* SVG logo animado */
+.logo-svg {
+  width: 40px;
+  height: 40px;
+  animation: float 3s ease-in-out infinite;
 }
 
-.btn {
-  display: inline-block;
-  margin-top: 10px;
-  background-color: #1d4ed8;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 6px;
-  text-decoration: none;
-}
-
-/* Barra de busca */
-.search-box {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  width: 80%;
-  max-width: 400px;
-  margin-top: 20px;
-}
-
-/* Artigos */
-.artigos-grid {
+/* Seções */
+.section {
+  min-height: 100vh;
+  padding: 100px 20px 60px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  max-width: 800px;
-  margin: auto;
-  margin-top: 30px;
+  justify-content: center;
+  text-align: center;
 }
 
-/* Contato */
-form {
-  max-width: 400px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 40px;
+/* Partículas ficam abaixo de tudo */
+#tsparticles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
 }
 
-form input,
-form textarea {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+/* Animações */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-form button {
-  background-color: #1d4ed8;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-/* Responsivo */
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .hamburger {
-    position: relative;
-    right: 0;
-  }
-}
-
-  .hero h1 {
-    font-size: 2.2rem;
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
