@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Moda Masculina</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
     :root {
       --azul-claro: #c3d9f7;
@@ -19,10 +18,11 @@
     }
 
     html, body {
-      font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(120deg, #edf5ff, #c3d9f7);
+      font-family: 'Bernard MT Condensed', 'Impact', 'Arial Narrow', sans-serif;
       color: #0d1b2a;
       scroll-behavior: smooth;
+      background: linear-gradient(to bottom, #eaf3ff 0%, #edf5ff 40%, #edf5ff 60%, #eaf3ff 100%);
+      background-attachment: fixed;
     }
 
     /* Logo flutuante */
@@ -30,21 +30,22 @@
       position: fixed;
       top: 1rem;
       left: 1.5rem;
-      font-size: 1.2rem;
-      font-weight: 500;
+      font-size: 1.8rem;
+      font-weight: bold;
       color: var(--azul-escuro);
-      background: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.5);
       padding: 0.4rem 0.8rem;
       border-radius: 8px;
       backdrop-filter: blur(10px);
       z-index: 1000;
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      letter-spacing: 1px;
     }
 
     /* Botão do menu (hamburger) */
     .menu-btn {
       position: fixed;
-      top: 1rem;
+      top: 1.2rem;
       right: 1.5rem;
       width: 30px;
       height: 24px;
@@ -70,7 +71,7 @@
       right: -250px;
       width: 250px;
       height: 100%;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(20px);
       box-shadow: -5px 0 10px rgba(0,0,0,0.1);
       display: flex;
@@ -158,7 +159,7 @@
 
     @media (max-width: 600px) {
       .logo-flutuante {
-        font-size: 1rem;
+        font-size: 1.2rem;
       }
 
       .menu {
