@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Moda Masculina</title>
   <link href="https://fonts.googleapis.com/css2?family=Century+Gothic&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
   <style>
     * {
       margin: 0;
@@ -14,21 +15,18 @@
 
     html, body {
       font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(to bottom, #0f172a, #1e293b);
-      color: #f0f4f8;
+      background: linear-gradient(to bottom, #e0f2fe, #c7d2fe); /* azul pastel claro */
+      color: #0f172a;
       scroll-behavior: smooth;
     }
 
-    body::before {
-      content: '';
+    #tsparticles {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100vh;
-      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.95));
+      height: 100%;
       z-index: -1;
-      pointer-events: none;
     }
 
     .floating-logo {
@@ -39,8 +37,8 @@
       font-size: 1.5rem;
       font-weight: bold;
       z-index: 999;
-      color: #ffffff;
-      background: rgba(0, 0, 0, 0.3);
+      color: #1e293b;
+      background: rgba(255, 255, 255, 0.6);
       padding: 0.5rem 1rem;
       border-radius: 8px;
       backdrop-filter: blur(6px);
@@ -59,7 +57,7 @@
     .menu-button div {
       width: 25px;
       height: 3px;
-      background-color: white;
+      background-color: #1e293b;
       margin: 5px 0;
       transition: 0.4s;
     }
@@ -70,7 +68,7 @@
       right: -250px;
       width: 250px;
       height: 100vh;
-      background-color: rgba(0, 0, 0, 0.9);
+      background-color: rgba(30, 41, 59, 0.95);
       backdrop-filter: blur(10px);
       transition: right 0.3s ease;
       z-index: 998;
@@ -120,7 +118,7 @@
       font-family: 'Century Gothic', sans-serif;
       font-size: 2rem;
       margin-bottom: 1rem;
-      color: #60a5fa;
+      color: #3b82f6;
       position: relative;
     }
 
@@ -132,7 +130,7 @@
     }
 
     .produto {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.5);
       padding: 1rem;
       border-radius: 10px;
       text-align: center;
@@ -141,7 +139,7 @@
 
     .produto:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
 
     .produto img {
@@ -183,6 +181,8 @@
   </style>
 </head>
 <body>
+
+  <div id="tsparticles"></div>
 
   <div class="floating-logo">Moda Masculina</div>
 
@@ -233,6 +233,39 @@
     function toggleMenu() {
       document.getElementById('sidebar').classList.toggle('open');
     }
+
+    tsParticles.load("tsparticles", {
+      background: { color: { value: "transparent" } },
+      fpsLimit: 60,
+      particles: {
+        color: { value: "#3b82f6" },
+        links: {
+          enable: true,
+          color: "#60a5fa",
+          distance: 100,
+          opacity: 0.5,
+          width: 1,
+        },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: "none",
+          outModes: { default: "bounce" }
+        },
+        number: {
+          value: 30,
+          density: { enable: true, area: 800 }
+        },
+        opacity: { value: 0.3 },
+        size: { value: 2 }
+      },
+      interactivity: {
+        events: { onHover: { enable: true, mode: "repulse" } },
+        modes: { repulse: { distance: 100, duration: 0.4 } }
+      },
+      detectRetina: true
+    });
   </script>
+
 </body>
 </html>
