@@ -6,8 +6,57 @@
   <title>Moda Masculina</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+  <!-- tsParticles CDN -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<script>
+  tsParticles.load("tsparticles", {
+    fullScreen: {
+      enable: true,
+      zIndex: -1
+    },
+    background: {
+      color: {
+        value: "#dbeafe"
+      }
+    },
+    particles: {
+      number: {
+        value: 60,
+        density: { enable: true, area: 800 }
+      },
+      color: { value: "#1e40af" },
+      shape: { type: "circle" },
+      opacity: {
+        value: 0.25,
+        random: true
+      },
+      size: {
+        value: 3,
+        random: true
+      },
+      move: {
+        enable: true,
+        speed: 0.4,
+        direction: "none",
+        outModes: { default: "out" }
+      }
+    },
+    interactivity: {
+      events: {
+        onHover: { enable: true, mode: "repulse" },
+        onClick: { enable: true, mode: "push" }
+      },
+      modes: {
+        repulse: { distance: 80 },
+        push: { quantity: 3 }
+      }
+    },
+    detectRetina: true
+  });
+</script>
   <script src="script.js"></script>
 <body>
+  <div id="tsparticles"></div>
   <header>
     <div class="logo">
   <svg id="logo-svg" width="40" height="40" viewBox="0 0 100 100" fill="none">
