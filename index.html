@@ -19,7 +19,7 @@
     <!-- Menu Hambúrguer -->
     <header>
       <div class="logo-container">
-        <img src="logo.png" alt="Moda Masculina Logo" class="logo" />
+        <h1 class="site-title">Moda Masculina</h1>
       </div>
       <div class="hamburger" id="hamburger">
         <span></span>
@@ -27,7 +27,6 @@
         <span></span>
       </div>
       <nav id="menu" class="hidden">
-        <a href="#inicio">Início</a>
         <a href="#produtos">Produtos</a>
         <a href="#artigos">Artigos</a>
         <a href="#contato">Contato</a>
@@ -36,17 +35,10 @@
 
     <!-- Seções FullPage -->
     <div id="fullpage">
-      <!-- Hero Section -->
-      <section class="section hero" id="inicio">
-        <div class="hero-content">
-          <img src="logo.png" alt="Logo" class="hero-logo" />
-          <h1>Moda Masculina</h1>
-        </div>
-      </section>
-
       <!-- Produtos -->
       <section class="section" id="produtos">
         <h2>Produtos em destaque</h2>
+        <input type="text" placeholder="Pesquisar produto..." class="search-box" />
         <div class="produtos-grid">
           <div class="produto">
             <img src="https://via.placeholder.com/150" alt="Produto 1">
@@ -60,13 +52,28 @@
             <p>Confortável para o dia a dia.</p>
             <a href="#" class="btn">Ver Produto</a>
           </div>
+          <div class="produto">
+            <img src="https://via.placeholder.com/150" alt="Produto 3">
+            <h3>Camisa Social Slim</h3>
+            <p>Elegância em qualquer ocasião.</p>
+            <a href="#" class="btn">Ver Produto</a>
+          </div>
         </div>
       </section>
 
       <!-- Artigos -->
       <section class="section" id="artigos">
         <h2>Artigos e Dicas</h2>
-        <p>Descubra tendências e dicas sobre moda masculina.</p>
+        <div class="artigos-grid">
+          <article>
+            <h3>Como combinar cores</h3>
+            <p>Aprenda a equilibrar cores no seu visual sem esforço.</p>
+          </article>
+          <article>
+            <h3>Estilo minimalista</h3>
+            <p>Descubra como montar um guarda-roupa versátil e elegante.</p>
+          </article>
+        </div>
       </section>
 
       <!-- Contato -->
