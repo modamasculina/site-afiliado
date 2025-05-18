@@ -3,83 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <title>Moda Masculina</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --azul-claro: #c3d9f7;
+      --azul-medio: #7aaaff;
+      --azul-escuro: #0d1b2a;
+      --azul-pastel: #edf5ff;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
       font-family: 'Orbitron', sans-serif;
-      background: radial-gradient(ellipse at top left, #1f4fff, #0d1b2a);
-      color: #e0e7ff;
-      min-height: 100vh;
+      background: linear-gradient(120deg, #edf5ff, #c3d9f7);
+      color: #0d1b2a;
+      scroll-behavior: smooth;
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background-color: rgba(13, 27, 42, 0.8);
+    /* Logo flutuante */
+    .logo-flutuante {
+      position: fixed;
+      top: 1rem;
+      left: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--azul-escuro);
+      background: rgba(255, 255, 255, 0.4);
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
       backdrop-filter: blur(10px);
+      z-index: 1000;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     }
 
-    .logo-text {
-      font-size: 1.4rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: #a2c8ff;
-      text-shadow: 0 0 5px #1f4fff88;
-    }
-
-    nav ul {
-      list-style: none;
+    /* Botão do menu (hamburger) */
+    .menu-btn {
+      position: fixed;
+      top: 1rem;
+      right: 1.5rem;
+      width: 30px;
+      height: 24px;
       display: flex;
-      gap: 2rem;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      z-index: 1001;
     }
 
-    nav a {
-      color: #e0e7ff;
-      text-decoration: none;
-      font-size: 1rem;
-      position: relative;
-      transition: all 0.3s ease;
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -4px;
+    .menu-btn span {
+      height: 4px;
       width: 100%;
-      height: 2px;
-      background-color: #7ecfff;
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.3s ease;
+      background: var(--azul-escuro);
+      border-radius: 2px;
+      transition: 0.3s;
     }
 
-    nav a:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
+    /* Menu lateral */
+    .menu {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      box-shadow: -5px 0 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      padding-top: 5rem;
+      padding-left: 2rem;
+      transition: right 0.4s ease;
+      z-index: 1000;
     }
 
+    .menu a {
+      text-decoration: none;
+      color: var(--azul-escuro);
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      transition: 0.3s;
+    }
+
+    .menu a:hover {
+      color: var(--azul-medio);
+    }
+
+    .menu.open {
+      right: 0;
+    }
+
+    /* Conteúdo principal */
     section {
-      padding: 4rem 2rem;
+      padding: 6rem 2rem 4rem;
       max-width: 1000px;
       margin: auto;
     }
 
     section h2 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin-bottom: 1rem;
-      border-left: 5px solid #7ecfff;
+      border-left: 4px solid var(--azul-medio);
       padding-left: 0.5rem;
     }
 
@@ -91,17 +119,17 @@
     }
 
     .produto {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.5);
       padding: 1rem;
       border-radius: 8px;
-      box-shadow: 0 0 15px rgba(126, 207, 255, 0.15);
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
 
     .produto:hover {
       transform: translateY(-5px);
-      box-shadow: 0 0 25px rgba(126, 207, 255, 0.3);
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
     }
 
     .produto img {
@@ -111,47 +139,49 @@
 
     .produto h3 {
       margin: 0.5rem 0;
-      color: #fff;
     }
 
     .produto a {
       display: inline-block;
       margin-top: 0.5rem;
       padding: 0.5rem 1rem;
-      background: #1f4fff;
-      color: #fff;
+      background: var(--azul-medio);
+      color: white;
       text-decoration: none;
       border-radius: 4px;
       font-weight: bold;
-      transition: background 0.3s;
     }
 
     .produto a:hover {
-      background: #7ecfff;
-      color: #000;
+      background: var(--azul-escuro);
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #0d1b2a;
-      color: #aaa;
-      margin-top: 2rem;
+    @media (max-width: 600px) {
+      .logo-flutuante {
+        font-size: 1rem;
+      }
+
+      .menu {
+        width: 200px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo-text">Moda Masculina</div>
-    <nav>
-      <ul>
-        <li><a href="#produtos">Produtos</a></li>
-        <li><a href="#artigos">Artigos</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="logo-flutuante">Moda Masculina</div>
+
+  <div class="menu-btn" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="menu" id="menu">
+    <a href="#produtos">Produtos</a>
+    <a href="#artigos">Artigos</a>
+    <a href="#contato">Contato</a>
+  </div>
 
   <section id="produtos">
     <h2>Produtos</h2>
@@ -184,10 +214,12 @@
     <p>Fale conosco pelo e-mail: contato@modamasculina.com</p>
   </section>
 
-  <footer>
-    &copy; 2025 Moda Masculina. Todos os direitos reservados.
-  </footer>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('open');
+    }
+  </script>
 
 </body>
 </html>
-
