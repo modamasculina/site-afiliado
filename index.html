@@ -1,94 +1,101 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Moda Masculina</title>
-  <link href="https://fonts.googleapis.com/css2?family=Boucherie+Block&family=Algerian&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Algerian&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    html {
+      scroll-behavior: smooth;
     }
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
+      margin: 0;
+      font-family: 'Oswald', sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
     }
     header {
-      background-color: #111;
-      color: #fff;
       display: flex;
+      justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
+      background-color: rgba(0, 0, 0, 0.85);
       position: sticky;
       top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 100;
     }
     .logo {
       font-family: 'Algerian', serif;
-      font-weight: bold;
-      font-size: 2.8rem;
-      text-transform: uppercase;
-      flex: 1;
-      color: #1E3A8A; /* Azul escuro moderno */
-    }
-    nav {
-      flex: 2;
-      display: flex;
-      justify-content: center;
+      font-size: 2.5rem;
+      color: #1e90ff;
     }
     nav ul {
       list-style: none;
       display: flex;
-      gap: 3rem;
+      gap: 2rem;
     }
     nav a {
-      font-family: 'Boucherie Block', cursive;
-      font-size: 1.3rem;
       color: #fff;
       text-decoration: none;
+      font-size: 1.1rem;
       position: relative;
-      transition: color 0.3s ease, transform 0.3s ease;
-      padding-bottom: 5px;
-      display: inline-block;
+      transition: color 0.3s;
     }
-    /* Efeito underline animado */
     nav a::after {
       content: '';
       position: absolute;
-      left: 0;
-      bottom: 0;
+      width: 100%;
       height: 2px;
-      width: 0;
-      background-color: #1E3A8A; /* azul escuro no underline */
-      transition: width 0.3s ease;
-      border-radius: 2px;
+      background: #1e90ff;
+      left: 0;
+      bottom: -5px;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease-out;
     }
     nav a:hover::after {
-      width: 100%;
+      transform: scaleX(1);
+      transform-origin: left;
     }
-    /* Cor muda e zoom no hover */
-    nav a:hover {
-      color: #1E3A8A; /* azul escuro no texto */
-      transform: scale(1.1);
-    }
-    main {
-      max-width: 1000px;
-      margin: 3rem auto;
-      padding: 0 2rem;
+    section {
+      min-height: 100vh;
+      padding: 5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
     }
     h1 {
-      font-family: 'Algerian', serif;
-      font-size: 3rem;
-      color: #222;
-      margin-bottom: 1.5rem;
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      max-width: 600px;
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+    footer {
       text-align: center;
+      padding: 2rem;
+      background: #111;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
+
+  <canvas id="particles-js"></canvas>
+
   <header>
     <div class="logo">Moda Masculina</div>
     <nav>
@@ -100,10 +107,73 @@
     </nav>
   </header>
 
-  <main>
-    <h1>Bem-vindo ao Moda Masculina</h1>
-    <p>Ainda estamos construindo o site, mas logo você verá aqui conteúdos incríveis.</p>
-  </main>
+  <section id="inicio">
+    <h1>Estilo é atitude</h1>
+    <p>Descubra tendências, produtos e dicas para transformar seu visual em uma expressão autêntica.</p>
+  </section>
+
+  <section id="produtos">
+    <h1>Produtos</h1>
+    <p>Explore uma curadoria de roupas e acessórios alinhados com o estilo urbano e contemporâneo.</p>
+  </section>
+
+  <section id="artigos">
+    <h1>Artigos</h1>
+    <p>Conteúdo sobre moda masculina, grooming e lifestyle com abordagem jovem e ousada.</p>
+  </section>
+
+  <section id="contato">
+    <h1>Contato</h1>
+    <p>Quer se conectar com a gente? Envie um e-mail para contato@modamasculina.com</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Moda Masculina. Todos os direitos reservados.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#1e90ff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: 3 },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#1e90ff",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: "none",
+          random: false,
+          straight: false,
+          out_mode: "out",
+          bounce: false
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+          repulse: { distance: 100, duration: 0.4 },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+
 </body>
 </html>
+
 
