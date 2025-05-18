@@ -1,100 +1,114 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Moda Masculina</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Algerian&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
+    html, body {
       margin: 0;
-      font-family: 'Oswald', sans-serif;
-      background: #0a0a0a;
+      padding: 0;
+      height: 100%;
+      scroll-behavior: smooth;
+      font-family: 'Bebas Neue', sans-serif;
+      background-color: #0d0d0d;
       color: #fff;
       overflow-x: hidden;
     }
-    canvas {
+
+    #particles-js {
       position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
       top: 0;
       left: 0;
-      z-index: -1;
     }
+
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      background-color: rgba(0, 0, 0, 0.85);
+      padding: 1.5rem 3rem;
+      background-color: rgba(0, 0, 0, 0.7);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
     }
+
     .logo {
       font-family: 'Algerian', serif;
       font-size: 2.5rem;
-      color: #1e90ff;
+      letter-spacing: 2px;
+      color: #0af;
     }
+
     nav ul {
       list-style: none;
       display: flex;
       gap: 2rem;
     }
+
     nav a {
-      color: #fff;
+      color: #ccc;
       text-decoration: none;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       position: relative;
-      transition: color 0.3s;
+      transition: all 0.3s ease;
     }
+
     nav a::after {
       content: '';
       position: absolute;
-      width: 100%;
+      width: 0;
       height: 2px;
-      background: #1e90ff;
+      background: #0af;
+      bottom: -4px;
       left: 0;
-      bottom: -5px;
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.3s ease-out;
+      transition: width 0.3s ease;
     }
+
+    nav a:hover {
+      color: #0af;
+    }
+
     nav a:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
+      width: 100%;
     }
+
     section {
       min-height: 100vh;
-      padding: 5rem 2rem;
+      padding: 5rem 3rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
-      text-align: center;
+      transform: translateY(0px);
+      transition: transform 0.3s ease-in-out;
     }
-    h1 {
-      font-size: 4rem;
+
+    section h2 {
+      font-size: 3rem;
       margin-bottom: 1rem;
+      color: #0af;
     }
-    p {
-      max-width: 600px;
+
+    section p {
       font-size: 1.2rem;
-      line-height: 1.6;
+      max-width: 800px;
     }
+
     footer {
       text-align: center;
       padding: 2rem;
-      background: #111;
-      color: #aaa;
+      background-color: rgba(0, 0, 0, 0.9);
+      color: #888;
     }
   </style>
 </head>
 <body>
-
-  <canvas id="particles-js"></canvas>
+  <div id="particles-js"></div>
 
   <header>
     <div class="logo">Moda Masculina</div>
@@ -107,71 +121,73 @@
     </nav>
   </header>
 
-  <section id="inicio">
-    <h1>Estilo é atitude</h1>
-    <p>Descubra tendências, produtos e dicas para transformar seu visual em uma expressão autêntica.</p>
-  </section>
-
   <section id="produtos">
-    <h1>Produtos</h1>
-    <p>Explore uma curadoria de roupas e acessórios alinhados com o estilo urbano e contemporâneo.</p>
+    <h2>Produtos</h2>
+    <p>Explore uma seleção estilosa e atualizada para compor seu visual street e moderno.</p>
   </section>
 
   <section id="artigos">
-    <h1>Artigos</h1>
-    <p>Conteúdo sobre moda masculina, grooming e lifestyle com abordagem jovem e ousada.</p>
+    <h2>Artigos</h2>
+    <p>Em breve você encontrará conteúdos sobre tendências, lifestyle, dicas de moda e muito mais.</p>
   </section>
 
   <section id="contato">
-    <h1>Contato</h1>
-    <p>Quer se conectar com a gente? Envie um e-mail para contato@modamasculina.com</p>
+    <h2>Contato</h2>
+    <p>Entre em contato pelo e-mail: contato@modamasculina.com</p>
   </section>
 
   <footer>
     &copy; 2025 Moda Masculina. Todos os direitos reservados.
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <!-- Particles.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
     particlesJS("particles-js", {
-      particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
-        color: { value: "#1e90ff" },
-        shape: { type: "circle" },
-        opacity: { value: 0.5 },
-        size: { value: 3 },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: "#1e90ff",
-          opacity: 0.4,
-          width: 1
+      "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#0af" },
+        "shape": {
+          "type": "circle",
+          "stroke": { "width": 0, "color": "#000000" },
         },
-        move: {
-          enable: true,
-          speed: 2,
-          direction: "none",
-          random: false,
-          straight: false,
-          out_mode: "out",
-          bounce: false
+        "opacity": { "value": 0.5, "random": false },
+        "size": { "value": 3, "random": true },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#0af",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 3,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false
         }
       },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: { enable: true, mode: "repulse" },
-          onclick: { enable: true, mode: "push" },
-          resize: true
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": true, "mode": "push" },
+          "resize": true
         },
-        modes: {
-          repulse: { distance: 100, duration: 0.4 },
-          push: { particles_nb: 4 }
+        "modes": {
+          "repulse": { "distance": 100, "duration": 0.4 },
+          "push": { "particles_nb": 4 }
         }
       },
-      retina_detect: true
+      "retina_detect": true
     });
   </script>
+</body>
+</html>
+
 
 </body>
 </html>
