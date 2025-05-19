@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Moda Masculina</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Partículas -->
+  <!-- Fundo de partículas -->
   <div id="tsparticles"></div>
 
-  <!-- Cabeçalho -->
+  <!-- Header com logo e menu -->
   <header>
     <div class="logo">
-      <svg viewBox="0 0 100 100">
-        <rect x="10" y="10" width="80" height="80" transform="rotate(45 50 50)" stroke="#1e40af" stroke-width="5" fill="none" />
-        <line x1="30" y1="30" x2="70" y2="70" stroke="#1e40af" stroke-width="4" />
+      <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="80" height="80" transform="rotate(45 50 50)" fill="none" stroke="#1e40af" stroke-width="5"/>
+        <line x1="10" y1="50" x2="90" y2="50" stroke="#1e40af" stroke-width="4"/>
       </svg>
       <span>Moda Masculina</span>
     </div>
@@ -25,34 +24,40 @@
       <span></span>
       <span></span>
     </div>
-    <nav id="menu" class="hidden" role="navigation" aria-label="Menu principal">
+    <nav id="menu" class="hidden">
       <a href="#produtos">Produtos</a>
       <a href="#artigos">Artigos</a>
-      <a href="#contato">Contato</a>
+      <a href="#contato">Fale Conosco</a>
     </nav>
   </header>
 
   <!-- Hero -->
   <section class="hero">
     <h1>Moda Masculina</h1>
-    <p>Estilo e tendência para o homem moderno</p>
+    <p>Estilo, atitude e confiança.</p>
   </section>
 
   <!-- Produtos -->
   <section id="produtos" class="section">
-    <h2>Produtos em destaque</h2>
+    <h2>Produtos em Destaque</h2>
     <div class="produtos-grid">
       <div class="produto">
-        <img src="https://via.placeholder.com/280x180" alt="Produto 1">
-        <h3>Relógio Minimalista</h3>
-        <p>Elegância e praticidade no seu pulso.</p>
-        <a href="https://www.amazon.com.br/" class="btn" target="_blank" rel="noopener noreferrer">Ver na Amazon</a>
+        <img src="https://via.placeholder.com/200x200?text=Rel%C3%B3gio+Moderno" alt="Relógio Moderno">
+        <h3>Relógio Moderno</h3>
+        <p>Design elegante para seu dia a dia.</p>
+        <a href="#" class="btn">Ver na Amazon</a>
       </div>
       <div class="produto">
-        <img src="https://via.placeholder.com/280x180" alt="Produto 2">
-        <h3>Camiseta Slim Fit</h3>
-        <p>Perfeita para um visual moderno e casual.</p>
-        <a href="https://www.amazon.com.br/" class="btn" target="_blank" rel="noopener noreferrer">Ver na Amazon</a>
+        <img src="https://via.placeholder.com/200x200?text=Camisa+Slim" alt="Camisa Slim">
+        <h3>Camisa Slim</h3>
+        <p>Estilo urbano com conforto.</p>
+        <a href="#" class="btn">Ver na Amazon</a>
+      </div>
+      <div class="produto">
+        <img src="https://via.placeholder.com/200x200?text=Tenis+Casual" alt="Tênis Casual">
+        <h3>Tênis Casual</h3>
+        <p>Versátil e moderno para qualquer ocasião.</p>
+        <a href="#" class="btn">Ver na Amazon</a>
       </div>
     </div>
   </section>
@@ -62,77 +67,74 @@
     <h2>Artigos Recentes</h2>
     <div class="artigos-grid">
       <div>
-        <h3>Dicas de estilo para o dia a dia</h3>
-        <p>Como montar combinações simples e estilosas.</p>
+        <img src="https://via.placeholder.com/400x200?text=Looks+Baratos" alt="Como se vestir bem gastando pouco">
+        <h3>Como se vestir bem gastando pouco</h3>
+        <p>Dicas práticas para montar looks estilosos sem estourar o orçamento.</p>
+        <a href="#" class="btn">Ler Mais</a>
       </div>
       <div>
-        <h3>Peças-chave para o guarda-roupa masculino</h3>
-        <p>Itens versáteis que todo homem deve ter.</p>
+        <img src="https://via.placeholder.com/400x200?text=Pe%C3%A7as+Essenciais" alt="Top 5 peças essenciais">
+        <h3>Top 5 peças essenciais no guarda-roupa masculino</h3>
+        <p>Itens-chave que combinam com qualquer ocasião.</p>
+        <a href="#" class="btn">Ler Mais</a>
+      </div>
+      <div>
+        <img src="https://via.placeholder.com/400x200?text=Acess%C3%B3rios" alt="A importância dos acessórios">
+        <h3>A importância dos acessórios na moda masculina</h3>
+        <p>Relógios, pulseiras e outros detalhes que fazem a diferença.</p>
+        <a href="#" class="btn">Ler Mais</a>
       </div>
     </div>
   </section>
 
   <!-- Contato -->
   <section id="contato" class="section">
-    <h2>Entre em contato</h2>
+    <h2>Fale Conosco</h2>
     <form action="https://formsubmit.co/SEU_EMAIL" method="POST">
-      <input type="text" name="nome" placeholder="Seu nome" required>
-      <input type="email" name="email" placeholder="Seu email" required>
-      <textarea name="mensagem" placeholder="Digite sua mensagem" rows="5" required></textarea>
-      <button type="submit" class="btn">Enviar</button>
+      <input type="text" name="name" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu e-mail" required>
+      <textarea name="message" rows="5" placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar</button>
     </form>
   </section>
 
   <!-- Scripts -->
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('menu');
-      menu.classList.toggle('hidden');
-    }
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
   <script>
     tsParticles.load("tsparticles", {
-      background: {
-        color: {
-          value: "transparent"
-        }
-      },
-      fullScreen: {
-        enable: false
-      },
+      fullScreen: { enable: true, zIndex: -1 },
+      background: { color: { value: "#dbeafe" } },
       particles: {
-        number: {
-          value: 60
-        },
-        color: {
-          value: "#60a5fa"
-        },
+        number: { value: 40 },
+        color: { value: ["#1e40af", "#2563eb"] },
         shape: {
-          type: "circle"
+          type: ["circle", "square", "triangle"],
         },
-        opacity: {
-          value: 0.3
-        },
-        size: {
-          value: 3
-        },
+        opacity: { value: 0.4, random: true },
+        size: { value: 6, random: true },
         move: {
           enable: true,
-          speed: 0.6,
+          speed: 1.2,
           direction: "none",
-          outModes: "out"
+          outModes: { default: "out" }
         }
       },
       interactivity: {
         events: {
-          onHover: {
-            enable: true,
-            mode: "repulse"
-          }
+          onHover: { enable: true, mode: "repulse" },
+          onClick: { enable: true, mode: "push" }
+        },
+        modes: {
+          repulse: { distance: 100 },
+          push: { quantity: 2 }
         }
-      }
+      },
+      detectRetina: true
     });
+
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('hidden');
+    }
   </script>
 </body>
 </html>
