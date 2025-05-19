@@ -35,3 +35,55 @@ function animateLogoFloat() {
 }
 
 animateLogoFloat();
+
+// Inicializa partículas interligadas
+tsParticles.load("tsparticles", {
+  background: {
+    color: {
+      value: "transparent"
+    }
+  },
+  fpsLimit: 60,
+  interactivity: {
+    events: {
+      onHover: {
+        enable: true,
+        mode: "repulse"
+      },
+      resize: true
+    }
+  },
+  particles: {
+    number: {
+      value: 80,
+      density: {
+        enable: true,
+        value_area: 800
+      }
+    },
+    color: {
+      value: "#888888"
+    },
+    shape: {
+      type: "circle"
+    },
+    opacity: {
+      value: 0.5
+    },
+    size: {
+      value: 3
+    },
+    links: {
+      enable: true,
+      distance: 150,
+      color: "#aaaaaa",
+      opacity: 0.4,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: 1
+    }
+  },
+  detectRetina: true
+});
