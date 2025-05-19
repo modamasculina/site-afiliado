@@ -65,30 +65,24 @@
   <!-- Artigos -->
   <section id="artigos" class="section">
     <h2>Artigos Recentes</h2>
-    <div class="artigos-cards">
-      <div class="artigo">
+    <div class="artigos-grid">
+      <div>
         <img src="https://via.placeholder.com/400x200?text=Looks+Baratos" alt="Como se vestir bem gastando pouco">
-        <div class="artigo-conteudo">
-          <h3>Como se vestir bem gastando pouco</h3>
-          <p>Dicas práticas para montar looks estilosos sem estourar o orçamento.</p>
-          <a href="#" class="btn">Ler Mais</a>
-        </div>
+        <h3>Como se vestir bem gastando pouco</h3>
+        <p>Dicas práticas para montar looks estilosos sem estourar o orçamento.</p>
+        <a href="#" class="btn">Ler Mais</a>
       </div>
-      <div class="artigo">
+      <div>
         <img src="https://via.placeholder.com/400x200?text=Pe%C3%A7as+Essenciais" alt="Top 5 peças essenciais">
-        <div class="artigo-conteudo">
-          <h3>Top 5 peças essenciais no guarda-roupa masculino</h3>
-          <p>Itens-chave que combinam com qualquer ocasião.</p>
-          <a href="#" class="btn">Ler Mais</a>
-        </div>
+        <h3>Top 5 peças essenciais no guarda-roupa masculino</h3>
+        <p>Itens-chave que combinam com qualquer ocasião.</p>
+        <a href="#" class="btn">Ler Mais</a>
       </div>
-      <div class="artigo">
+      <div>
         <img src="https://via.placeholder.com/400x200?text=Acess%C3%B3rios" alt="A importância dos acessórios">
-        <div class="artigo-conteudo">
-          <h3>A importância dos acessórios na moda masculina</h3>
-          <p>Relógios, pulseiras e outros detalhes que fazem a diferença.</p>
-          <a href="#" class="btn">Ler Mais</a>
-        </div>
+        <h3>A importância dos acessórios na moda masculina</h3>
+        <p>Relógios, pulseiras e outros detalhes que fazem a diferença.</p>
+        <a href="#" class="btn">Ler Mais</a>
       </div>
     </div>
   </section>
@@ -105,39 +99,8 @@
   </section>
 
   <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script src="script.js"></script>
   <script>
-    tsParticles.load("tsparticles", {
-      fullScreen: { enable: true, zIndex: -1 },
-      background: { color: { value: "#dbeafe" } },
-      particles: {
-        number: { value: 50 },
-        color: { value: ["#1e40af", "#2563eb", "#3b82f6"] },
-        shape: {
-          type: ["circle", "square", "triangle"],
-        },
-        opacity: { value: 0.3, random: true },
-        size: { value: 4, random: true },
-        move: {
-          enable: true,
-          speed: 1.5,
-          direction: "none",
-          outModes: { default: "out" }
-        }
-      },
-      interactivity: {
-        events: {
-          onHover: { enable: true, mode: "repulse" },
-          onClick: { enable: true, mode: "push" }
-        },
-        modes: {
-          repulse: { distance: 100 },
-          push: { quantity: 3 }
-        }
-      },
-      detectRetina: true
-    });
-
     function toggleMenu() {
       document.getElementById('menu').classList.toggle('hidden');
     }
